@@ -14,13 +14,10 @@ import {ProtectedRoute} from "./components/Authentication/ProtectedRoute";
 const App = () => {
     return (
         <AuthProvider>
-            <h1>React Router</h1>
-
-            <Navigation/>
-
             <Routes>
                 <Route index element={<Home/>}/>
                 <Route path="home" element={<Home/>}/>
+                <Route path="navigation" element={<Navigation/>}/>
                 <Route path="dashboard" element={
                     <ProtectedRoute>
                         <Dashboard/>
