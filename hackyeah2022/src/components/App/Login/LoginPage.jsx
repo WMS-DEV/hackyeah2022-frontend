@@ -36,19 +36,20 @@ export default function LoginPage({setToken}) {
 
     return (
         <>
-            <img className="twig"   src={twig} alt="Twig"/>
+            <img className="twig" src={twig} alt="Twig"/>
             <div className="login-page">
                 <div className='login-box'>
                 <h1>Log In</h1>
                 <form onSubmit={handleSubmit}>
-                    <label>
-                        <p>Username</p>
-                        <input type="text" onChange={e => setUserName(e.target.value)}/>
-                    </label>
-                    <label>
-                        <p>Password</p>
-                        <input type="password" onChange={e => setPassword(e.target.value)}/>
-                    </label>
+                    <label>Username</label>
+                    <br/>
+                    <input type="text" onChange={e => setUserName(e.target.value)}/>
+                    <br/>
+                    <br/>
+                    <label>Password</label>
+                    <br/>
+                    <input type="password" onChange={e => setPassword(e.target.value)}/>
+                    <br/>
                     <div>
                         <button type="submit">Submit</button>
                     </div>
