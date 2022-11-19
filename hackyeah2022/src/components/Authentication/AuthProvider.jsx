@@ -15,21 +15,23 @@ const AuthProvider = ({ children }) => {
     const [password, setPassword] = useState(null);
 
     const auth = (username, password) => {
-        const data = fetch(`${apiLink}/login`, {
+        /*const data*/ return fetch(`${apiLink}/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({"username": "michal", "password": "root"})
         }).then((response)=>{
-        setToken(response.headers.get('authorization'))
-        console.log(token)})
+        debugger;
+        console.log(response);
+        console.log(response.headers.get('authorization'));
+        return response.headers.get('authorization')}); 
     }
 
     const handleLogin = async (username, password) => {
         const token = await auth(username, password);
-
-        //setToken(token);
+        console.log(token);
+        setToken(token);
         const origin = location.state?.from?.pathname || '/user/dashboard';
         navigate(origin);
     };
