@@ -36,7 +36,7 @@ export default function LoginPage({setToken}) {
 
     return (
         <>
-            <img src={twig} alt="Twig"/>
+            <img className="twig"   src={twig} alt="Twig"/>
             <div className="login-page">
                 <div className='login-box'>
                 <h1>Log In</h1>
