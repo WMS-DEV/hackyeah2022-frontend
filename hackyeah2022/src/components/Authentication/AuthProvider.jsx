@@ -1,11 +1,12 @@
 import {createContext, useContext, useState} from "react";
-import {useNavigate} from "react-router-dom";
+import {useNavigate,  useLocation} from "react-router-dom";
 
 const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
 
     const navigate = useNavigate();
+    const location = useLocation();
 
     const [token, setToken] = useState(null);
 
@@ -18,7 +19,8 @@ const AuthProvider = ({ children }) => {
         const token = await fakeAuth();
 
         setToken(token);
-        navigate('/dashboard');
+        const origin = location.state?.from?.pathname || '/dashboard';
+        navigate(origin);
     };
 
     const handleLogout = () => {
