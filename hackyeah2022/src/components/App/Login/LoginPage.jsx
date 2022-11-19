@@ -37,7 +37,7 @@ export default function LoginPage({setToken}) {
     return (
         <>
             <img className="twig" src={twig} alt="Twig"/>
-            <div className="login-page">
+            <div className="login-box-container">
                 <div className='login-box'>
                 <h1>Log In</h1>
                 <form onSubmit={handleSubmit}>
@@ -55,6 +55,12 @@ export default function LoginPage({setToken}) {
                     </div>
                 </form>
                 </div>
+            </div>
+            <div className="registration-buttons-contaier"> 
+                <h1>Register as</h1>
+                <button className="register-button">Common user</button>    
+                <button className="register-button">Charity</button>
+                <button className="register-button">Recycling company</button>
             </div>
         </>
     )

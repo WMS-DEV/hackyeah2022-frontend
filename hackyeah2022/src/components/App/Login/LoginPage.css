@@ -9,3 +9,22 @@
     height: 80vh;
     float: right;
 }
+
+.login-box-container {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 70%;
+}
+
+.register-button {
+    background-color: var(--lightblue);
+    border-color: var(--lightblue);
+    color: var(--lightblue);
+}
+
+.register-button:hover {
+    cursor: pointer;
+    border-color: var(--blue);
+    background-color: var(--blue);
+  }

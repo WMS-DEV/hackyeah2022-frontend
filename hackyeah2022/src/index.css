@@ -2,6 +2,7 @@
   --green: #009900;
   --lightgreen: #85cf78;
   --red: #cc0000;
+  --light-blue: #74c1e8;
   --blue: #3333cc;
   --lightgrey: #F2F0F1;
 }
@@ -64,5 +65,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
 
 
