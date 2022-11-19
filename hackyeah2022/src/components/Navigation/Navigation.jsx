@@ -10,6 +10,7 @@ const Navigation = () => {
             <NavLink to='/home'>Home</NavLink>
             <NavLink to="/dashboard">Dashboard</NavLink>
             <NavLink to="/preferences">Preferences</NavLink>
+            <NavLink to="/charity-registration">Charity Registration</NavLink>
 
             {token && (
                 <button type="button" onClick={onLogout}>
