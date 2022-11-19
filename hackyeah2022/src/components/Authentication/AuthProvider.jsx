@@ -14,22 +14,22 @@ const AuthProvider = ({ children }) => {
     const [username, setUsername] = useState(null);
     const [password, setPassword] = useState(null);
 
-    const auth = (username, password) => {
-        const data = fetch(`${apiLink}/login`, {
+    const auth = async (username, password) => {
+        const data = await fetch(`${apiLink}/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({"username": "michal", "password": "root"})
         }).then((response)=>{
-        setToken(response.headers.get('authorization'))
-        console.log(token)})
+            console.log(response.headers.get('authorization'))
+            setToken(response.headers.get('authorization'));
+        return response.headers.get('authorization')
+        })
     }
 
     const handleLogin = async (username, password) => {
-        const token = await auth(username, password);
-
-        //setToken(token);
+        await auth(username, password)
         const origin = location.state?.from?.pathname || '/user/dashboard';
         navigate(origin);
     };
