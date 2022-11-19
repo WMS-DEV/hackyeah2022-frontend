@@ -20,11 +20,14 @@
 .register-button {
     background-color: var(--lightblue);
     border-color: var(--lightblue);
-    color: var(--lightblue);
 }
 
 .register-button:hover {
     cursor: pointer;
     border-color: var(--blue);
     background-color: var(--blue);
-  }
+}
+
+.registration-button-container {
+
+}

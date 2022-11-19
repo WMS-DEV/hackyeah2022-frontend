@@ -56,10 +56,13 @@ export default function LoginPage({setToken}) {
                 </form>
                 </div>
             </div>
-            <div className="registration-buttons-contaier"> 
+            <div className="registration-buttons-container"> 
                 <h1>Register as</h1>
-                <button className="register-button">Common user</button>    
+                <br/>
+                <button className="register-button">Common user</button>   
+                <br/> 
                 <button className="register-button">Charity</button>
+                <br/>
                 <button className="register-button">Recycling company</button>
             </div>
         </>
