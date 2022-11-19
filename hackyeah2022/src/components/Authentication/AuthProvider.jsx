@@ -29,8 +29,8 @@ const AuthProvider = ({ children }) => {
     const handleLogin = async (username, password) => {
         const token = await auth(username, password);
 
-        setToken(token);
-        const origin = location.state?.from?.pathname || '/dashboard';
+        //setToken(token);
+        const origin = location.state?.from?.pathname || '/user/dashboard';
         navigate(origin);
     };
 
