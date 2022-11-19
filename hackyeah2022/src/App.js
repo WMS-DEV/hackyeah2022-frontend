@@ -14,6 +14,29 @@ import { CharityRegistration } from './components/App/Registration/CharityRegist
 
 const App = () => {
     return (
+        <>
+            <AuthProvider>
+                <Routes>
+
+                        <Route path="login" element={<LoginPage/>}/>
+                        <Route index element={<LoginPage/>}/>
+                        <Route path="home" element={<Home/>}/>
+                        <Route path="dashboard" element={
+                            <ProtectedRoute>
+                                <Dashboard/>
+                            </ProtectedRoute>
+                        }/>
+                        <Route path="preferences" element={
+                            <ProtectedRoute>
+                                <Preferences/>
+                            </ProtectedRoute>
+                        }/>
+                        <Route path="navigation" element={<Navigation/>}/>
+                        <Route path="*" element={<NotFound/>}/>
+                </Routes>
+            </AuthProvider>
+        </>
+);
         <AuthProvider>
             <h1>React Router</h1>
 
