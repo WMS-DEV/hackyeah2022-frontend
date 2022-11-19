@@ -30,6 +30,7 @@ const AuthProvider = ({ children }) => {
 
     const handleLogin = async (username, password) => {
         await auth(username, password)
+        //setToken('Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtaWNoYWwiLCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9LHsiYXV0aG9yaXR5IjoiUk9MRV9VU0VSIn1dLCJpYXQiOjE2Njg4OTk4MjUsImV4cCI6MTY2OTQyMDgwMH0.iNC7RaSuG8g_WY_OIUULn4CwuF6J1kv5rJwAekKcnLoTdGjguA5Gsvm1-mbvILjwfEj-3-xj4a1J9lFcdIEpFw')
         const origin = location.state?.from?.pathname || '/user/dashboard';
         navigate(origin);
     };
