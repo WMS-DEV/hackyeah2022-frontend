@@ -30,7 +30,7 @@ export default function LoginPage({setToken}) {
             <div className="login-box-container">
                 <div className='login-box'>
                 <h1>Log In</h1>
-                <form onSubmit={onLogin}>
+                <div>
                     <label>Username</label>
                     <br/>
                     <input type="text" onChange={onUsernameChange}/>
@@ -43,7 +43,7 @@ export default function LoginPage({setToken}) {
                     <div>
                         <button type="submit" onClick={onLogin}>Submit</button>
                     </div>
-                </form>
+                </div>
                 </div>
             </div>
             <div className="login-box-container">
@@ -59,8 +59,4 @@ export default function LoginPage({setToken}) {
             </div>
         </>
     )
-}
-
-LoginPage.propTypes = {
-    setToken: PropTypes.func.isRequired
 }
