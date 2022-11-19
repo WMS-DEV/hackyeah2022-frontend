@@ -1,33 +1,40 @@
 import './App.css';
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {Link, Route, Routes} from "react-router-dom";
 import Dashboard from "./components/App/Dashboard/Dashboard";
 import Preferences from "./components/App/Preferences/Preferences";
 import LoginPage from "./components/App/Login/LoginPage";
+import NotFound from "./components/NotFound/NotFound"
+import Home from "./components/App/Home/Home"
 import useToken from "./useToken";
-import {useEffect} from "react";
+import {useEffect, useState, createContext} from "react";
+import Navigation from "./components/Navigation/Navigation"
+import AuthProvider from "./components/Authentication/AuthProvider";
+import {ProtectedRoute} from "./components/Authentication/ProtectedRoute";
 
-function App() {
-
-    const { token, setToken } = useToken();
-
-    useEffect(()=>{console.log(`TO JEST TOKEN: ${token}`)}, [token])
-
-    if(!token) {
-        return <LoginPage setToken={setToken} />
-    }
+const App = () => {
     return (
-        <>
-            <div className="wrapper">
-                <h1>Application</h1>
-                <BrowserRouter>
-                    <Routes>
-                        <Route path="/dashboard" element={<Dashboard/>} />
-                        <Route path="/preferences" element={<Preferences/>}/>
-                    </Routes>
-                </BrowserRouter>
-            </div>
-        </>
+        <AuthProvider>
+            <h1>React Router</h1>
+
+            <Navigation/>
+
+            <Routes>
+                <Route index element={<Home/>}/>
+                <Route path="home" element={<Home/>}/>
+                <Route path="dashboard" element={
+                    <ProtectedRoute>
+                        <Dashboard/>
+                    </ProtectedRoute>
+                }/>
+                <Route path="preferences" element={
+                    <ProtectedRoute>
+                        <Preferences/>
+                    </ProtectedRoute>
+                }/>
+                <Route path="*" element={<NotFound/>}/>
+            </Routes>
+        </AuthProvider>
     );
-}
+};
 
 export default App;
