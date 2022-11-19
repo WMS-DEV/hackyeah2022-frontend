@@ -10,15 +10,22 @@ import {useEffect, useState, createContext} from "react";
 import Navigation from "./components/Navigation/Navigation"
 import AuthProvider from "./components/Authentication/AuthProvider";
 import {ProtectedRoute} from "./components/Authentication/ProtectedRoute";
+import { CharityRegistration } from './components/App/Registration/CharityRegistration';
 
 const App = () => {
     return (
         <AuthProvider>
+            <h1>React Router</h1>
+
+            <Navigation/>
+
             <Routes>
+                <Route path="login" element={<LoginPage/>}/>
                 <Route index element={<Home/>}/>
                 <Route path="home" element={<Home/>}/>
                 <Route path="navigation" element={<Navigation/>}/>
                 <Route path="loginpage" element={<LoginPage/>}/>
+                <Route path="charity-registration" element={<CharityRegistration/>}/>
                 <Route path="dashboard" element={
                     <ProtectedRoute>
                         <Dashboard/>
