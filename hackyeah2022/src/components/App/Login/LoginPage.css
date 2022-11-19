@@ -15,15 +15,23 @@
     justify-content: center;
     display: flex;
     width: 70%;
+    margin-top: 2vh;
+    margin-bottom: 10vh;
 }
 
 .register-button {
     background-color: var(--lightblue);
     border-color: var(--lightblue);
+    margin: 1rem;
 }
 
 .register-button:hover {
     cursor: pointer;
     border-color: var(--blue);
     background-color: var(--blue);
+}
+
+.register-heading {
+    margin: 1rem;
+    margin-bottom: 0.25rem;
 }
