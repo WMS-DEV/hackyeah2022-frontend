@@ -6,12 +6,17 @@ export const CharityRegistration = () => {
 
     const [name, setName] = React.useState(null);
     const [email, setEmail] = React.useState(null);
+    const [representativeName, setRepresentativeName] = React.useState();
+    const [representativeSurname, setRepresentativeSurname] = React.useState();
     const [password, setPassword] = React.useState(null);
     const [city, setCity] = React.useState(null);
     const [voivodship, setVoivodship] = React.useState(null);
-    const [address, setAddress] = React.useState(null);
+    const [street, setStreet] = React.useState(null);
+    const [houseNumber, setHouseNumber] = React.useState(null);
+    const [flatNumber, setFlatNumber] = React.useState(null);
     const [lockerId, setLockerId] = React.useState(null);
     const [description, setDescription] = React.useState(null);
+    const [taxIdentificationNumber, setTaxIdentificationNumber] = React.useState(null);
 
 
     const handleSetName=(event)=>{
@@ -31,14 +36,17 @@ export const CharityRegistration = () => {
     const handleSetVoivodship=(event)=>{
         setVoivodship(event.target.value);
     }
-    const handleSetAddress=(event)=>{
-        setAddress(event.target.value);
+    const handleSetStreet=(event)=>{
+        setStreet(event.target.value);
     }
     const handleSetLockerId=(event)=>{
         setLockerId(event.target.value);
     }
     const handleSetLDescription=(event)=>{
         setDescription(event.target.value);
+    }
+    const handleSetTaxIdentificationNumber=(event)=>{
+        setTaxIdentificationNumber(event.target.value);
     }
 
     const handleSubmitButton=(event)=>{
@@ -50,7 +58,7 @@ export const CharityRegistration = () => {
             "password":password,
             "city":city,
             "voivodship":voivodship,
-            "address":address,
+            "street":street,
             "lockerId":lockerId,
             "description":description
         });
@@ -99,14 +107,19 @@ export const CharityRegistration = () => {
                 <input id="city" className="text_input" onChange={handleSetCity}/>
                 <br/>
                 <br/>
-                <label>Address (Street, postal code)</label>
-                <input id="address" className="text_input" onChange={handleSetAddress}/>
+                <label>Street</label>
+                <input id="street" className="text_input" onChange={handleSetStreet}/>
                 <br/>
                 <br/>
                 <label>Locker id</label>
                 <input id="locker_id" className="text_input" onChange={handleSetLockerId}/>
                 <br/>
                 <br/>
+                <label>Tax identification number</label>
+                <input id="tax_identification_number" className="text_input" onChange={handleSetLockerId}/>
+                <br/>
+                <br/>
+                
                 <label>Charity Description</label>
                 <div>
                     <textarea id="description" className="text_input" onChange={handleSetLDescription}/>
