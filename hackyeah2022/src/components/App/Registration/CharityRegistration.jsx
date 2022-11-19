@@ -22,6 +22,12 @@ export const CharityRegistration = () => {
     const handleSetName=(event)=>{
         setName(event.target.value);
     }
+    const handleRepresentativeName=(event)=>{
+        setRepresentativeName(event.target.value);
+    }
+    const handleRepresentativeSurname=(event)=>{
+        setRepresentativeSurname(event.target.value);
+    }
 
     const handleSetEmail=(event)=>{
         setEmail(event.target.value);
@@ -42,7 +48,7 @@ export const CharityRegistration = () => {
     const handleSetLockerId=(event)=>{
         setLockerId(event.target.value);
     }
-    const handleSetLDescription=(event)=>{
+    const handleSetDescription=(event)=>{
         setDescription(event.target.value);
     }
     const handleSetTaxIdentificationNumber=(event)=>{
@@ -53,8 +59,10 @@ export const CharityRegistration = () => {
         
 
         let bodyJSON = JSON.stringify({
-            "name":name,
-            "email":email,
+            "first_name":representativeName,
+            "last_name":representativeSurname,
+            "organization_name":name,
+            "username":email,
             "password":password,
             "city":city,
             "voivodship":voivodship,
@@ -116,13 +124,12 @@ export const CharityRegistration = () => {
                 <br/>
                 <br/>
                 <label>Tax identification number</label>
-                <input id="tax_identification_number" className="text_input" onChange={handleSetLockerId}/>
+                <input id="tax_identification_number" className="text_input" onChange={handleSetTaxIdentificationNumber}/>
                 <br/>
                 <br/>
-                
                 <label>Charity Description</label>
                 <div>
-                    <textarea id="description" className="text_input" onChange={handleSetLDescription}/>
+                    <textarea id="description" className="text_input" onChange={handleSetDescription}/>
                 </div>
                 
                 <br/>
