@@ -1,9 +1,13 @@
 import React, {useState} from 'react';
-import './Login.css';
+import './LoginPage.css';
 import PropTypes from 'prop-types';
-const apiLink = 'https://donatenow-hackyeah.azurewebsites.net'
+import twig from "../../../assets/twig.jpg";
+
+const apiLink = 'https://donatenow-hackyeah.azurewebsites.net';
 
 export default function LoginPage({setToken}) {
+
+    const twig = require("../../../assets/twig.jpg");
 
     async function loginUser (credentials) {
         const data = await fetch(`${apiLink}/login`, {
@@ -32,6 +36,7 @@ export default function LoginPage({setToken}) {
 
     return (
         <>
+            <img src={twig} alt="Twig"/>
             <div className="login-page">
                 <div className='login-box'>
                 <h1>Log In</h1>
@@ -49,8 +54,6 @@ export default function LoginPage({setToken}) {
                     </div>
                 </form>
                 </div>
-
-
             </div>
         </>
     )
