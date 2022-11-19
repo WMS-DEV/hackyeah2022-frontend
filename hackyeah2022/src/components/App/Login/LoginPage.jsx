@@ -5,24 +5,13 @@ import twig from "../../../assets/twig.jpg";
 import {useAuth} from "../../Authentication/AuthProvider";
 
 
-const apiLink = 'https://donatenow-hackyeah.azurewebsites.net';
+
 
 export default function LoginPage({setToken}) {
 
-    const { onLogin, onUsernameChange, onPasswordChange} = useAuth();
+    const { apiLink, onLogin, onUsernameChange, onPasswordChange} = useAuth();
 
     const twig = require("../../../assets/twig.jpg");
-
-    async function loginUser (credentials) {
-        const data = await fetch(`${apiLink}/login`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(credentials)
-        })
-        return(data.headers.get('authorization'))
-    }
 
     return (
         <>

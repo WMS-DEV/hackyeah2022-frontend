@@ -3,13 +3,14 @@ import {useNavigate,  useLocation} from "react-router-dom";
 
 const AuthContext = createContext(null);
 
-const apiLink = 'https://donatenow-hackyeah.azurewebsites.net'
+
 
 const AuthProvider = ({ children }) => {
 
     const navigate = useNavigate();
     const location = useLocation();
 
+    const apiLink = 'https://donatenow-hackyeah.azurewebsites.net'
     const [token, setToken] = useState(null);
     const [username, setUsername] = useState(null);
     const [password, setPassword] = useState(null);
@@ -48,6 +49,7 @@ const AuthProvider = ({ children }) => {
     }
 
     const value = {
+        apiLink,
         token,
         onLogin: handleLogin,
         onLogout: handleLogout,
