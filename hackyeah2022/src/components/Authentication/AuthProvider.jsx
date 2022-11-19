@@ -14,24 +14,27 @@ const AuthProvider = ({ children }) => {
     const [username, setUsername] = useState(null);
     const [password, setPassword] = useState(null);
 
+<<<<<<< HEAD
     const auth = (username, password) => {
         /*const data*/ return fetch(`${apiLink}/login`, {
+=======
+    const auth = async (username, password) => {
+        const data = await fetch(`${apiLink}/login`, {
+>>>>>>> 05593db17f77e80769fc67f7ec41443d325756ce
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({"username": "michal", "password": "root"})
         }).then((response)=>{
-        debugger;
-        console.log(response);
-        console.log(response.headers.get('authorization'));
-        return response.headers.get('authorization')}); 
+            console.log(response.headers.get('authorization'))
+            setToken(response.headers.get('authorization'));
+        return response.headers.get('authorization')
+        })
     }
 
     const handleLogin = async (username, password) => {
-        const token = await auth(username, password);
-        console.log(token);
-        setToken(token);
+        await auth(username, password)
         const origin = location.state?.from?.pathname || '/user/dashboard';
         navigate(origin);
     };
