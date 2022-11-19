@@ -1,5 +1,28 @@
+h1{
+  padding: 5%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+
+}
 .form_field{
     display:flex;
     flex-direction: column;
     align-items: center;
 }
+#submitButton{
+    display:block;
+}
+.description{
+    width: 50%;
+    height: 30%;
+}
+textarea {
+    border-radius: 2vh;
+    width: 80vh;
+    height: 40vh;
+    padding: 2vh;
+    font-size: 1rem;
+    margin-top: 3px;
+  }
+

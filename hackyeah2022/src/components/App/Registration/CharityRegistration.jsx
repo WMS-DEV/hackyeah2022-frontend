@@ -4,13 +4,14 @@ import './CharityRegistrationPage.css'
 
 export const CharityRegistration = () => {
 
-    const [name, setName] = React.useState();
-    const [email, setEmail] = React.useState();
-    const [password, setPassword] = React.useState();
-    const [city, setCity] = React.useState();
-    const [voivodship, setVoivodship] = React.useState();
-    const [address, setAddress] = React.useState();
-    const [lockerId, setLockerId] = React.useState();
+    const [name, setName] = React.useState(null);
+    const [email, setEmail] = React.useState(null);
+    const [password, setPassword] = React.useState(null);
+    const [city, setCity] = React.useState(null);
+    const [voivodship, setVoivodship] = React.useState(null);
+    const [address, setAddress] = React.useState(null);
+    const [lockerId, setLockerId] = React.useState(null);
+    const [description, setDescription] = React.useState(null);
 
 
     const handleSetName=(event)=>{
@@ -36,37 +37,86 @@ export const CharityRegistration = () => {
     const handleSetLockerId=(event)=>{
         setLockerId(event.target.value);
     }
+    const handleSetLDescription=(event)=>{
+        setDescription(event.target.value);
+    }
+
+    const handleSubmitButton=(event)=>{
+        
+
+        let bodyJSON = JSON.stringify({
+            "name":name,
+            "email":email,
+            "password":password,
+            "city":city,
+            "voivodship":voivodship,
+            "address":address,
+            "lockerId":lockerId,
+            "description":description
+        });
+
+        console.log(bodyJSON);
+
+        let headers = new Headers();
+
+        const requestOptions = {
+            method: 'POST',
+            headers: headers,
+            body: bodyJSON,
+            redirect: 'follow'
+          };
+
+          
+         //const postRequest = fetch(`${apiLink}/charity-registration`, requestOptions).then(response => response.text())
+         //.then(result => console.log(result))
+         //.catch(error => console.log('error', error));
+
+         event.preventDefault();
+
+    }
 
     return (
         <div>
-            <h>Registration of charity organization</h>
-            <div className="form_field">
+            <h1 className="form_field">Registration of charity organization</h1>
+            <form className="form_field">
                 <label>Charity name</label>
+                <input id="name" className="text_input" onChange={handleSetName}/>
                 <br/>
-                <input id="name" class="text_input" onChange={(event)=>handleSetName(event.target.value)}/>
                 <br/>
                 <label>Charity email</label>
+                <input id="email" className="text_input" onChange={handleSetEmail}/>
                 <br/>
-                <input id="email" class="text_input" onChange={(event)=>handleSetEmail(event.target.value)}/>
+                <br/>
                 <label>Password</label>
+                <input id="password" className="text_input" type="password" onChange={handleSetPassword}/>
                 <br/>
-                <input id="password" class="text_input" type="password" onChange={(event)=>handleSetPassword(event.target.value)}/>
+                <br/>
                 <label>Voivodship</label>
+                <input id="voivodship" className="text_input" onChange={handleSetVoivodship}/>
                 <br/>
-                <input id="voivodship" class="text_input" onChange={(event)=>handleSetVoivodship(event.target.value)}/>
+                <br/>
                 <label>City</label>
+                <input id="city" className="text_input" onChange={handleSetCity}/>
                 <br/>
-                <input id="city" class="text_input" onChange={(event)=>handleSetCity(event.target.value)}/>
+                <br/>
                 <label>Address (Street, postal code)</label>
+                <input id="address" className="text_input" onChange={handleSetAddress}/>
                 <br/>
-                <input id="address" class="text_input" onChange={(event)=>handleSetAddress(event.target.value)}/>
+                <br/>
                 <label>Locker id</label>
+                <input id="locker_id" className="text_input" onChange={handleSetLockerId}/>
                 <br/>
-                <input id="locker_id" class="text_input" onChange={(event)=>handleSetLockerId(event.target.value)}/>
-            </div>
+                <br/>
+                <label>Charity Description</label>
+                <div>
+                    <textarea id="description" className="text_input" onChange={handleSetLDescription}/>
+                </div>
+                
+                <br/>
+            </form>
 
-            <div id="form_field">
-                <button id="submit_button">Submit</button>
+            <div className="form_field">
+                <button id="submit_button" onClick={handleSubmitButton}>Submit</button>
             </div>
 
 
