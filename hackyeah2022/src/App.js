@@ -1,16 +1,19 @@
 import './App.css';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Dashboard from "./components/Dashboard/Dashboard";
-import Preferences from "./components/Preferences/Preferences";
-import Login from "./components/Login/Login";
+import Dashboard from "./components/App/Dashboard/Dashboard";
+import Preferences from "./components/App/Preferences/Preferences";
+import LoginPage from "./components/App/Login/LoginPage";
 import useToken from "./useToken";
+import {useEffect} from "react";
 
 function App() {
 
     const { token, setToken } = useToken();
 
+    useEffect(()=>{console.log(`TO JEST TOKEN: ${token}`)}, [token])
+
     if(!token) {
-        return <Login setToken={setToken} />
+        return <LoginPage setToken={setToken} />
     }
     return (
         <>
