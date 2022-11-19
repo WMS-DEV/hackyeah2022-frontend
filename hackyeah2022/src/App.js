@@ -3,6 +3,7 @@ import {Link, Route, Routes} from "react-router-dom";
 import Dashboard from "./components/App/Dashboard/Dashboard";
 import Preferences from "./components/App/Preferences/Preferences";
 import LoginPage from "./components/App/Login/LoginPage";
+import LoginPage from "./components/App/Auction/Auction";
 import NotFound from "./components/NotFound/NotFound"
 import Home from "./components/App/Home/Home"
 import useToken from "./useToken";
@@ -22,6 +23,7 @@ const App = () => {
             <Routes>
                 <Route path="login" element={<LoginPage/>}/>
                 <Route index element={<Home/>}/>
+                <Route path="auction" element={<Auction/>}/>
                 <Route path="home" element={<Home/>}/>
                 <Route path="navigation" element={<Navigation/>}/>
                 <Route path="loginpage" element={<LoginPage/>}/>
