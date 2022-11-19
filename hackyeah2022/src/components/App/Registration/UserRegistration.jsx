@@ -3,7 +3,7 @@ import './CharityRegistrationPage.css'
 
 const apiLink = 'https://donatenow-hackyeah.azurewebsites.net';
 
-export const CharityRegistration = () => {
+export const UserRegistration = () => {
 
     const [name, setName] = React.useState(null);
     const [email, setEmail] = React.useState(null);
