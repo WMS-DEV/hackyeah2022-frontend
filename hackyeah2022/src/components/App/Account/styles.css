@@ -10,7 +10,7 @@
 .profileInfo {
     background-color: var(--lightgrey);
     height: auto;
-    width: 135vh;
+    width: 130vh;
     border-radius: 1rem;
     display: grid;
     column-gap: 5vh;
@@ -81,7 +81,7 @@
     color: #000000;
 }
 .changeProfilePicture span:hover{
-    color: #ffffff;
+    color: #000000;
 }
 
 .changeProfilePicture h5{
@@ -132,7 +132,7 @@
     position: relative;
     background-color: #0000;
     height: auto;
-    width: 130vh;
+    width: 135vh;
 }
 
 .billingChart canvas{
