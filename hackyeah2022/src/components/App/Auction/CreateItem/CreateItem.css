@@ -37,3 +37,7 @@ background-color: var(--ligthgray);
   transition: color 0.25s ease-in;
 
 }
+.checkboxgrid{
+    display:grid;
+    grid-auto-columns: 2;
+}

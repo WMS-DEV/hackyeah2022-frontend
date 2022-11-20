@@ -14,11 +14,10 @@ export const Register = () => {
                 <div id="registerContainer">
                     <img src={logo}/>
                     <h1 className="register-heading">Register as:</h1>
-                    <button className="register-button">Common user</button>
+                    <Link to="/register/user"><button className="register-button">Common user</button></Link>
                     <br/>
-                    <button className="register-button">Charity</button>
-                    <br/>
-                    <button className="register-button">Recycling company</button>
+                    <Link to="/register/organization"><button className="register-button">Organization</button></Link>
+                    
                 </div>
                 <div className={"registerText"}>
                     <h4>Already have an account?<Link to="/login"><h5>Log in here!</h5></Link></h4>
