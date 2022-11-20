@@ -21,6 +21,7 @@
     margin-top: 15vh;
     margin-bottom: 5vh;
     padding: 5vh;
+    padding-top: 13vh;
     height: 7vh;
     width: 50vw;
     background-position: center;
@@ -30,6 +31,7 @@
 }
 
 .dashboard-page span{
+    cursor: pointer;
     color: #000000;
     position: absolute;
     padding: 10px;
@@ -40,4 +42,27 @@
 .search-wrapper{
     width: 100%;
     margin-bottom: 10px;
+}
+
+.container{
+    color: #000000;
+    width: 100%;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.empty {
+    width: 100%;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.empty h2 {
+    font-size: 1.25rem;
+    color: #000000;
 }

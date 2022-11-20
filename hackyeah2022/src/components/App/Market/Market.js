@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { useAuth } from '../../Authentication/AuthProvider';
 import InfiniteScroll from "react-infinite-scroll-component";
-import {ItemTile} from "./ItemTile/ItemTile";
+import {AuctionCard} from "../Dashboard/AuctionCard";
 import './Market.css'
 
 export const Market = () => {
@@ -152,7 +152,7 @@ export const Market = () => {
                                 loader={<div id="infinite_loader">
                                     <div className="dots-4"></div>
                                 </div>}>
-                                {items.map((cur, index) => <ItemTile key={cur.id} data={items[index]}/>)}
+                                {items.map((cur) => <AuctionCard data={cur}/>)}
                             </InfiniteScroll>}
                     </div>
                 </div>
