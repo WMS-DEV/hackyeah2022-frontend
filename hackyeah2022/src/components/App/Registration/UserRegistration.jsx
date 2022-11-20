@@ -124,7 +124,9 @@ export const UserRegistration = () => {
         <div>
         <div className="center_container">
             <h1>Registration of an individual</h1>
-        </div>    
+        </div>   
+        <br/>
+        <br/> 
         
         <div className="center_container">
             <form className="form_field">

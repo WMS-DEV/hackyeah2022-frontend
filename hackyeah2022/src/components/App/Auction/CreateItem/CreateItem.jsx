@@ -160,22 +160,22 @@ export const CreateItem = () => {
                 <label>Available shipment methods</label>
                 <div className="form_field">
                     <br/>
-                    <div className="in_line_containers">
+                    <div className="in_line_containers checkboxgrid" >
                           <lo>Package machine</lo>
-                          <input id="PACKAGE_MACHINE" name="shipment"type="checkbox" onChange={handleAllowedShippingTypes}></input>
+                          <input id="PACKAGE_MACHINE" name="shipment"type="checkbox" onClick={handleAllowedShippingTypes}></input>
                      </div>
-                     <div className="in_line_containers">
+                     <div className="in_line_containers checkboxgrid">
                          <lo>Courier</lo>
-                       <input id="COURIER" name="shipment"type="checkbox" onChange={handleAllowedShippingTypes}></input>
+                       <input id="COURIER" name="shipment"type="checkbox" onClick={handleAllowedShippingTypes}></input>
                      </div>
                 
-                     <div className="in_line_containers">
+                     <div className="in_line_containers checkboxgrid">
                         <lo>Pickup by seller</lo>
-                        <input id="PICKUP_BY_SELLER" name="shipment"type="checkbox" onChange={handleAllowedShippingTypes}></input>
+                        <input id="PICKUP_BY_SELLER" name="shipment"type="checkbox" onClick={handleAllowedShippingTypes}></input>
                 </div>
-                <div className="in_line_containers">
+                <div className="in_line_containers checkboxgrid">
                         <lo>Self delivery</lo>
-                        <input id="SELF_DELIVERY" name="shipment"type="checkbox" onChange={handleAllowedShippingTypes}></input>
+                        <input id="SELF_DELIVERY" name="shipment"type="checkbox" onClick={handleAllowedShippingTypes}></input>
                 </div>
 
                 </div>

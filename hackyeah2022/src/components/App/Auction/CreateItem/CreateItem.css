@@ -12,8 +12,8 @@
     row-gap:1vh;
 }
 .in_line_containers{
-    display:inline-block;
-    align-items: center;
+    display:inline;
+    /*align-items: center;*/
 }
 /*
 .create_item{
@@ -36,4 +36,13 @@ background-color: var(--ligthgray);
   margin: 2rem 2.5rem;
   transition: color 0.25s ease-in;
 
+}
+lo{
+    grid-column-start: 1;
+    grid-column-end: 1;
+
+}
+.checkboxgrid{
+    display:grid;
+    grid-auto-columns: 2;
 }

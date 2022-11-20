@@ -26,7 +26,7 @@ const App = () => {
                 <Route index element={<LoginPage/>}/>
                 <Route path="login" element={<LoginPage/>}/>
                 <Route path="register" element={<Register/>}/>
-                <Route path="user-registration" element={<UserRegistration/>}/>
+                <Route path="/register/user" element={<UserRegistration/>}/>
                 <Route path="/register/organization" element={<OrganizationRegistration/>}/>
                 <Route path="/user/*" element={<ProtectedRoute><User /></ProtectedRoute>}>
                     <Route path="market" element={<Market/>}/>
