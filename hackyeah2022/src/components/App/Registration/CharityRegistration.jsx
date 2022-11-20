@@ -4,7 +4,7 @@ import './CharityRegistrationPage.css'
 
 const apiLink = 'https://donatenow-hackyeah.azurewebsites.net';
 
-export const CharityRegistration = () => {
+export const OrganizationRegistration = () => {
 
     const [name, setName] = React.useState(null);
     const [email, setEmail] = React.useState(null);
@@ -23,6 +23,8 @@ export const CharityRegistration = () => {
     const [taxIdentificationNumber, setTaxIdentificationNumber] = React.useState(null);
     const [phoneNumber, setPhoneNumber] = React.useState(null);
     const [image,setImage] = React.useState(null);
+    const [accountType, setAccountType] = React.useState();
+
 
 
     const handleSetName=(event)=>{
@@ -78,6 +80,9 @@ export const CharityRegistration = () => {
     }
     const handleImage=(event)=>{
         setImage(event.target.files[0])
+    }
+    const handleAccountType=(event)=>{
+        setAccountType(event.target.value)
     }
 
     const handleSubmitButton=(event)=>{
@@ -137,6 +142,9 @@ export const CharityRegistration = () => {
         <div className="center_container">
             <h1>Registration of a charity organization</h1>
         </div>    
+        <br/>
+        <br/>
+
         
         <div className="center_container">
             <form className="form_field">
@@ -263,6 +271,21 @@ export const CharityRegistration = () => {
                     <br/>
                     <br/>
                     <input id="handle_image" className="text_input" type="file" accept="image/*" onChange={handleImage}/>
+                </div>
+                <div className="center_container">
+                    <br/>
+                    <br/>
+
+                    <label>Type of an organization</label>
+                    <div>
+                        <select onChange={handleAccountType}>
+                            <option value="ECO_MARKET">Ecological organization</option>
+                            <option value="CHARITY_MARKET">Charity organization</option>
+                        </select>
+
+                    </div>
+                   
+
                 </div>
 
             </form>
