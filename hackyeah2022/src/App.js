@@ -17,18 +17,20 @@ import { Profile } from "./components/App/Account/Profile";
 import { Item } from "./components/App/Market/Item/Item";
 import { UserRegistration } from './components/App/Registration/UserRegistration';
 import { CreateItem } from './components/App/Auction/CreateItem/CreateItem';
+import {Register} from "./components/App/Registration/Register";
 
 const App = () => {
     return (
         <AuthProvider>
             <Routes>
                 <Route index element={<LoginPage/>}/>
-                <Route path="loginpage" element={<LoginPage/>}/>
+                <Route path="login" element={<LoginPage/>}/>
+                <Route path="register" element={<Register/>}/>
                 <Route path="user-registration" element={<UserRegistration/>}/>
                 <Route path="/register/organization" element={<OrganizationRegistration/>}/>
                 <Route path="/user/*" element={<ProtectedRoute><User /></ProtectedRoute>}>
                     <Route path="market" element={<Market/>}/>
-                    <Route path="market/*" element={<Item/>}/>
+                    <Route path="market/item/*" element={<Item/>}/>
                     <Route path="home" element={<Home/>}/>
                     <Route path="navigation" element={<Navigation/>}/>
                     <Route path="new-item" element={<CreateItem/>}/>
