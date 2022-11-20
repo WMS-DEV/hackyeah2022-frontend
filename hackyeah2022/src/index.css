@@ -5,6 +5,7 @@
   --lightblue: #74c1e8;
   --blue: #3333cc;
   --lightgrey: #F2F0F1;
+  --white: #FFFFFF;
 }
 
 input {
@@ -43,7 +44,7 @@ body {
 }
 
 button {
-  background-color: var(--lightgreen);
+  background-color: var(--white);
   border-color: var(--lightgreen);
   border-radius: 2.5vh;
   border-width: 0px;
