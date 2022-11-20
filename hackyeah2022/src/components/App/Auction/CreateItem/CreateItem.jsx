@@ -10,26 +10,25 @@ export const CreateItem = () => {
 
     const [title, setTitle] = React.useState(null);
     const [location, setLocation] = React.useState();
-    const [categories, setCategories] = React.useState(null);
+    const [categories, setCategories] = React.useState([]);
     const [allowedShippingTypes, setAllowedShippingTypes] = React.useState([]);
     const [selectedCategory, setSelectedCategory] = React.useState(null);
+    const [image, setImage] = React.useState(null);
+    const [markets, setMarkets] = React.useState([]);
+    const [description, setDescription] = React.useState(null);
 
     const { token } = useAuth();
-
+    
     useEffect(() => {
-        const fetchRoles = async () => {
+        const fetchCategories = async () => {
             const data = await fetch(`${apiLink}/categories`, {headers: {'authorization': token}})
-            .then(response => response.json());
-            const allCategories = data.map(category => {
-                category.active = false;
-                return category;
-            });
-            setCategories(allCategories);
+            .then(response => response.json())
+            setCategories(data);
             console.log(categories);
         }
-        fetchRoles().catch(console.error);;
+        fetchCategories().catch(console.error);;
     }, []); 
-
+    
 
 
     const handleSetTitle=(event)=>{
@@ -44,44 +43,120 @@ export const CreateItem = () => {
     const handleSelectedCategory=(event)=>{
         setSelectedCategory(event.target.value);
     }
-    const handleAddNewCategory = (event) => {
-
-        if(categories.filter(category=>!category.active).indexOf(event.target.value)<0){
-
-            setCategories((()=> categories.map((category)=>category==event.target.value ? category.active=true : category)));
+    const handleLoadImage=(event)=>{
+        setImage(event.target.files[0]);
+        event.preventDefault();
+    }
+    const handleMarkets=(event)=>{
+        if(markets.indexOf(event.target.value)<0){
+            markets.append(event.target.value);
         }
 
+        setMarkets(event.target.value);
+    }
+    const  handleRemoveMarkets = (event) =>{
+        console.log(event);
 
+        let newMarket = markets.filter(market => market!=event.target.value);
+        setMarkets(newMarket);
+        console.log(markets);
+    }
+    const handleSetDescription=(event)=>{
+        setDescription(event.target.value);
+    }
+    const handleAddMarket=(event)=>{
+
+        if (markets.indexOf(event.target.value)<0)
+        {
+            const newMarket = markets.concat(event.target.value);
+            ///markets.push(event.target.value);
+            setMarkets(newMarket);
+        }
+        console.log(markets);
+        event.preventDefault();
+
+    }
+
+    const handleSubmitButton=(event)=>{
         
+        let bodyJSON = JSON.stringify({
+            "title":title,
+            "location":location,
+            "description":description,
+            "category": selectedCategory,
+            "listedFor": markets,
+            "image":image,
+            "allowedShippingTypes":allowedShippingTypes
+        });
+
+        console.log(bodyJSON);
+
+        let headers = new Headers();
+
+        var formData = new FormData();
+        let bodyBlob = new Blob([bodyJSON], {type: "application/json"});
+
+        formData.append("request",bodyBlob);
+        //formData.append("image",image)
+
+        const requestOptions = {
+            method: 'POST',
+            headers: headers,
+            body: formData,
+            redirect: 'follow'
+          };
+
+          const postRequest = fetch(`${apiLink}/admin/organizations/register`, requestOptions).then(response => response.text())
+       .then(result => console.log(result))
+       .catch(error => console.log('error', error));
 
     }
 
 
-
-
-
     return (
         <div>
-            <div >
+            <div className="center_container">
                 <h1>Put an item on auction!</h1>
             </div>
 
-            <div>
+            <div className="center_container">
                 <label>Title</label>
                 <br/>
                 <input type="text" className="text_input"></input>
-
+                <br/>
                 <label>Location</label>
                 <br/>
                 <input type="text" className="text_input"></input>
-
+                <br/>
                 <label>Categories</label>
+                <br/>
                 <input name="categories" list="categories" className="text_input" onChange={handleSelectedCategory} type="text"/>
                             <datalist name="categories" id="categories" className="text_input">
-                                {categories.map(category => <option value={category}>{category}</option>)}
+                            {categories.map(category => <option value={category}>{category}</option>)}
                             </datalist>
+                <br/>
+                <label>Photo</label>
+                <input type="file" className="text_input" accept="image/*" onClick={handleLoadImage}></input>
+                <br/>
+                <label>Who should be able to claim your item ?</label>
 
-                    
+                <div className="in_line_containers">
+                    <button id="market_button" value="MARKET" onClick={handleAddMarket}>Charity organizations</button>
+                    <button id="charity_market_button" value="CHARITY_MARKET" onClick={handleAddMarket}>Charity organizations</button>
+                    <button id="eco_market_button" value="ECO_MARKET" onClick={handleAddMarket}>Eco organizations</button>
+                </div>
+                <div className="center_container">
+                {markets.map((market)=><div className="in_line_containters">
+                    {market}<button value={market} onClick={handleRemoveMarkets}>Remove market</button>
+                </div>)}
+
+                </div>
+                
+                <br/>
+                <div>
+                    <button onClick={handleSubmitButton}>Submit</button>
+                </div>
+
             </div>
 
             

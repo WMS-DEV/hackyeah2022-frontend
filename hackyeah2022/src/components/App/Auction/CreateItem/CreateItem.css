@@ -1,0 +1,15 @@
+.center_container{
+    display:flex;
+   /* display: block;*/
+    align-items: left;
+    flex-direction: column;
+}
+.form_field{
+    display: grid;
+    grid-template-columns:2;
+    column-gap: 0.5vh;
+    row-gap:1vh;
+}
+.in_line_containers{
+   /* display: inline;*/
+}
