@@ -1,5 +1,5 @@
 import {useAuth} from "../../Authentication/AuthProvider";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import { Footer } from "../Footer/Footer";
 import { ProfileInfo } from "./ProfileInfo";
 import './styles.css'
@@ -43,7 +43,9 @@ export const Profile = () => {
         </>)} else{
         return(
             <>
-
+                <div className="loader-wrapper">
+                    <div className="loader"/>
+                </div>
             </>
         )
 
