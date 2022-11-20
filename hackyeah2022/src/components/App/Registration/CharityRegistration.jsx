@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './CharityRegistrationPage.css'
 
+
 const apiLink = 'https://donatenow-hackyeah.azurewebsites.net';
 
 export const CharityRegistration = () => {
@@ -110,7 +111,7 @@ export const CharityRegistration = () => {
         let bodyBlob = new Blob([bodyJSON], {type: "application/json"});
 
         formData.append("request",bodyBlob);
-        formData.append("image",image)
+        //formData.append("image",image)
 
         const requestOptions = {
             method: 'POST',
@@ -134,13 +135,14 @@ export const CharityRegistration = () => {
     return (
         <div>
         <div className="center_container">
-            <h1>Registration of charity organization</h1>
+            <h1>Registration of a charity organization</h1>
         </div>    
         
         <div className="center_container">
             <form className="form_field">
                 <div className="name ">
                     <label>Charity name</label>
+                    <br/>
                     <br/>
                     <input id="name" className="text_input" onChange={handleSetName}/>
                 </div>
@@ -149,12 +151,14 @@ export const CharityRegistration = () => {
                 <div className="email">
                     <label>Charity email</label>
                     <br/>
+                    <br/>
                     <input id="email" className="text_input" onChange={handleSetEmail}/>
                 </div>
                 
                 
                 <div className="representative_name">
                     <label>Charity representative name</label>
+                    <br/>
                     <br/>
                     <input id="representative_name" className="text_input" onChange={handleRepresentativeName}/>
                 </div>
@@ -163,12 +167,14 @@ export const CharityRegistration = () => {
                 <div className="representative_surname">
                      <label>Charity representative surname</label>
                      <br/>
+                     <br/>
                      <input id="representative_surname" className="text_input" onChange={handleRepresentativeSurname}/>
                 </div>
                
                 
                 <div className="phone_number">
                     <label>Phone number</label>
+                    <br/>
                     <br/>
                     <input id="phone_number" className="text_input" onChange={handleSetPhoneNumber}/>
                 </div>
@@ -177,12 +183,14 @@ export const CharityRegistration = () => {
                 <div className="password">
                     <label>Password</label>
                     <br/>
+                    <br/>
                     <input id="password" className="text_input" type="password" onChange={handleSetPassword}/>
                 </div>
                 
                 
                 <div className="voivodship">
                     <label>Voivodship</label>
+                    <br/>
                     <br/>
                     <input id="voivodship" className="text_input" onChange={handleSetVoivodship}/>
                 </div>
@@ -191,6 +199,7 @@ export const CharityRegistration = () => {
                 <div className="city">
                     <label>City</label>
                     <br/>
+                    <br/>
                     <input id="city" className="text_input" onChange={handleSetCity}/>
                 </div>
                
@@ -198,11 +207,13 @@ export const CharityRegistration = () => {
                 <div  className="street">
                     <label>Street</label>
                     <br/>
+                    <br/>
                     <input id="street" className="text_input" onChange={handleSetStreet}/>
                 </div>
                 
                 <div className="house_number">
                     <label>House number</label>
+                    <br/>
                     <br/>
                     <input id="house_number" className="text_input" onChange={handleSetHouseNumber}/>
                 </div>
@@ -211,12 +222,14 @@ export const CharityRegistration = () => {
                 <div className="flat_number">
                     <label>Flat number</label>
                     <br/>
+                    <br/>
                     <input id="house_number" className="text_input" onChange={handleSetFlatNumber}/>
                 </div>
                 
                 
                 <div className="postal_code">
                     <label>Postal code</label>
+                    <br/>
                     <br/>
                     <input id="postal_code" className="text_input" onChange={handleSetPostalCode}/>
                 </div>
@@ -226,6 +239,7 @@ export const CharityRegistration = () => {
                 <div className="locker_id" >
                     <label>Package machine number</label>
                     <br/>
+                    <br/>
                     <input id="locker_id" className="text_input" onChange={handleSetLockerId}/>
                 </div>
                 
@@ -233,17 +247,20 @@ export const CharityRegistration = () => {
                 <div className="tax_identification_number">
                     <label>Tax identification number</label>
                     <br/>
+                    <br/>
                     <input id="tax_identification_number" className="text_input" onChange={handleSetTaxIdentificationNumber}/>
                 </div>
                 
                 <div className="additional_shipping_info">
                     <label>Additional shipping information</label>
                     <br/>
+                    <br/>
                     <input id="additional_shipping_info" className="text_input" onChange={handleSetAdditionalShippingInfo}/>
                 </div>
 
                 <div className="handle_image">
                     <label>Image</label>
+                    <br/>
                     <br/>
                     <input id="handle_image" className="text_input" type="file" accept="image/*" onChange={handleImage}/>
                 </div>
