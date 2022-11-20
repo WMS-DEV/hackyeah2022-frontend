@@ -140,7 +140,7 @@ export const OrganizationRegistration = () => {
     return (
         <div>
         <div className="center_container">
-            <h1>Registration of a charity organization</h1>
+            <h1>Registration of an organization</h1>
         </div>    
         <br/>
         <br/>
@@ -149,7 +149,7 @@ export const OrganizationRegistration = () => {
         <div className="center_container">
             <form className="form_field">
                 <div className="name ">
-                    <label>Charity name</label>
+                    <label>Organization name</label>
                     <br/>
                     <br/>
                     <input id="name" className="text_input" onChange={handleSetName}/>
@@ -157,7 +157,7 @@ export const OrganizationRegistration = () => {
                 
                 
                 <div className="email">
-                    <label>Charity email</label>
+                    <label>Organization email</label>
                     <br/>
                     <br/>
                     <input id="email" className="text_input" onChange={handleSetEmail}/>
@@ -165,7 +165,7 @@ export const OrganizationRegistration = () => {
                 
                 
                 <div className="representative_name">
-                    <label>Charity representative name</label>
+                    <label>Organization representative name</label>
                     <br/>
                     <br/>
                     <input id="representative_name" className="text_input" onChange={handleRepresentativeName}/>
@@ -173,7 +173,7 @@ export const OrganizationRegistration = () => {
                 
                 
                 <div className="representative_surname">
-                     <label>Charity representative surname</label>
+                     <label>Organization representative surname</label>
                      <br/>
                      <br/>
                      <input id="representative_surname" className="text_input" onChange={handleRepresentativeSurname}/>
@@ -294,7 +294,7 @@ export const OrganizationRegistration = () => {
             <br/>
 
             <div className="charity_description">
-                    <label >Charity Description</label>
+                    <label >Description of the organization</label>
                     <br/>
                     <div>
                         <textarea id="description" className="text_input" onChange={handleSetDescription}/>
