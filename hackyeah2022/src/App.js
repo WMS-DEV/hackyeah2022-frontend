@@ -14,6 +14,7 @@ import AuthProvider from "./components/Authentication/AuthProvider";
 import {ProtectedRoute} from "./components/Authentication/ProtectedRoute";
 import { CharityRegistration } from './components/App/Registration/CharityRegistration';
 import { Profile } from "./components/App/Account/Profile";
+import { Item } from "./components/App/Market/Item/Item";
 
 const App = () => {
     return (
@@ -23,6 +24,7 @@ const App = () => {
                 <Route path="loginpage" element={<LoginPage/>}/>
                 <Route path="/user/*" element={<ProtectedRoute><User /></ProtectedRoute>}>
                     <Route path="market" element={<Market/>}/>
+                    <Route path="market/*" element={<Item/>}/>
                     <Route path="home" element={<Home/>}/>
                     <Route path="navigation" element={<Navigation/>}/>
                     <Route path="account" element={<Profile/>}/>
