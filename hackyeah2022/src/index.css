@@ -64,6 +64,11 @@ table {
   --grey: #9da1b0;
   --lightgrey: #e7e4e6;
   --white: #FFFFFF;
+  --top-offset: 5vh;
+}
+
+#root_without_loginpage {
+  margin-top: var(--top-offset);
 }
 
 input {
@@ -127,6 +132,11 @@ code {
     monospace;
 }
 
+.infinite-scroll-component {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 6.5vw 6.5vh 6.5vw;
+}
 
 
 

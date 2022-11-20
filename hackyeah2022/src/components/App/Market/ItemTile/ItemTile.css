@@ -1,0 +1,46 @@
+.tile {
+    background-color: #454444;
+    color: #FFFFFF;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+  }
+
+.tile {
+    display: grid;
+    grid-template-rows: 2fr 5fr 1fr;
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas:
+      "photo title"
+      "photo description"
+      "photo location";
+  }
+  
+.tile a {
+    background-color: #454444;
+  }
+  
+  #offer_title {
+    grid-area: title;
+    font-size: 3vh;
+  }
+  
+  #offer_name a {
+    margin: 0;
+  }
+  
+  #photo {
+    grid-area: photo;
+  }
+  
+  #location {
+    grid-area: location;
+  }
+  
+  .offer.tile p {
+    font-size: 1.5625vh;
+    margin: 1vh;
+    text-align: left;
+  }
