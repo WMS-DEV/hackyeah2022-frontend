@@ -11,12 +11,34 @@
 }
 
 .login-box-container {
-    align-items: center;
-    justify-content: center;
     display: flex;
-    width: 70%;
+    flex-direction: column;
+    width: auto;
     margin-top: 2vh;
     margin-bottom: 10vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.registerText{
+    margin-top: 0;
+    padding-top: 0;
+    width: auto;
+    text-align: center;
+}
+
+.login-box h4{
+}
+
+.registerText h5{
+    display: inline-block;
+    color: var(--green);
+    background-color: #FFFFFF;
+    text-decoration: underline;
+}
+
+.registerText a{
+    background-color: #FFFFFF;
 }
 
 .register-button {
@@ -58,4 +80,38 @@
 
 .button-notloading i {
     display: none;
+}
+
+.logo{
+    margin-top: 22vh;
+    width: auto;
+    height: 7vh;
+    margin-left: -2.5vw;
+    margin-bottom: 2vh;
+}
+
+.loginForm{
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loginForm button{
+    width: 15vw;
+    margin-top: 4vh;
+}
+
+.loginForm input{
+    margin-top: 2vh;
+    width: 30vw;
+    text-align: left;
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
+}
+
+.loginForm label{
+    margin-top: 2vh;
+    margin-bottom: -10px;
+
 }
