@@ -9,6 +9,7 @@ export default function Dashboard() {
     const {token} = useAuth();
 
     return (
+
         <>
 
             <div className="dashboard-page">
@@ -21,5 +22,6 @@ export default function Dashboard() {
                 </div>
             </div>
         </>
+
     );
 }

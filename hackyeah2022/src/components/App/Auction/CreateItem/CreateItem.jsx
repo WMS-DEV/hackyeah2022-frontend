@@ -7,14 +7,18 @@ const apiLink = 'https://donatenow-hackyeah.azurewebsites.net';
 
 
 export const CreateItem = () => {
-
+    /*
+    <button id="market_button" value="MARKET" onClick={handleAddMarket}>Charity organizations</button>
+    <button id="charity_market_button" value="CHARITY_MARKET" onClick={handleAddMarket}>Charity organizations</button>
+    <button id="eco_market_button" value="ECO_MARKET" onClick={handleAddMarket}>Eco organizations</button>
+    */
     const [title, setTitle] = React.useState(null);
     const [location, setLocation] = React.useState();
     const [categories, setCategories] = React.useState([]);
     const [allowedShippingTypes, setAllowedShippingTypes] = React.useState([]);
     const [selectedCategory, setSelectedCategory] = React.useState(null);
     const [image, setImage] = React.useState(null);
-    const [markets, setMarkets] = React.useState([]);
+    const [markets, setMarkets] = React.useState(null);
     const [description, setDescription] = React.useState(null);
 
     const { token } = useAuth();
@@ -38,21 +42,27 @@ export const CreateItem = () => {
         setLocation(event.target.value);
     }
     const handleAllowedShippingTypes=(event)=>{
-        setAllowedShippingTypes(event.target.value);
+        //console.log(event.target.checked);
+        if(event.target.checked==true){
+            if(allowedShippingTypes.indexOf(event.target.id)<0){
+                let newAllowedShippingTypes = allowedShippingTypes.concat(event.target.id);
+                setAllowedShippingTypes(newAllowedShippingTypes);
+            }
+        }
+        if(event.target.checked==false){
+            if(allowedShippingTypes.indexOf(event.target.id)>-1){
+                let newAllowedShippingTypes = allowedShippingTypes.filter(type=> type!=event.target.id);
+                setAllowedShippingTypes(newAllowedShippingTypes);
+            }
+        }
+        console.log(allowedShippingTypes);
     }
     const handleSelectedCategory=(event)=>{
         setSelectedCategory(event.target.value);
     }
     const handleLoadImage=(event)=>{
         setImage(event.target.files[0]);
-        event.preventDefault();
-    }
-    const handleMarkets=(event)=>{
-        if(markets.indexOf(event.target.value)<0){
-            markets.append(event.target.value);
-        }
-
-        setMarkets(event.target.value);
+        console.log(image);
     }
     const  handleRemoveMarkets = (event) =>{
         console.log(event);
@@ -92,12 +102,13 @@ export const CreateItem = () => {
         console.log(bodyJSON);
 
         let headers = new Headers();
+        headers.append("Authorization",token)
 
         var formData = new FormData();
         let bodyBlob = new Blob([bodyJSON], {type: "application/json"});
 
         formData.append("request",bodyBlob);
-        //formData.append("image",image)
+        formData.append("image",image);
 
         const requestOptions = {
             method: 'POST',
@@ -106,27 +117,32 @@ export const CreateItem = () => {
             redirect: 'follow'
           };
 
-          const postRequest = fetch(`${apiLink}/admin/organizations/register`, requestOptions).then(response => response.text())
+          const postRequest = fetch(`${apiLink}/auction`, requestOptions).then(response => response.text())
        .then(result => console.log(result))
        .catch(error => console.log('error', error));
 
     }
 
+    const handleMarkets=(event)=>{
+        setMarkets(event.target.value);
+        event.preventDefault();
+    }
+
 
     return (
         <div>
-            <div className="center_container">
+            <div className="create_item center_container">
                 <h1>Put an item on auction!</h1>
             </div>
 
             <div className="center_container">
                 <label>Title</label>
                 <br/>
-                <input type="text" className="text_input"></input>
+                <input type="text" className="text_input" onChange={handleSetTitle}></input>
                 <br/>
                 <label>Location</label>
                 <br/>
-                <input type="text" className="text_input"></input>
+                <input type="text" className="text_input" onChange={handleSetLocation}></input>
                 <br/>
                 <label>Categories</label>
                 <br/>
@@ -136,21 +152,61 @@ export const CreateItem = () => {
                             </datalist>
                 <br/>
                 <label>Photo</label>
-                <input type="file" className="text_input" accept="image/*" onClick={handleLoadImage}></input>
+                <input type="file" className="text_input" accept="image/*" onChange={handleLoadImage}></input>
                 <br/>
-                <label>Who should be able to claim your item ?</label>
+                <br/>
 
+
+                <label>Available shipment methods</label>
+                <div className="form_field">
+                    <br/>
+                    <div className="in_line_containers">
+                          <lo>Package machine</lo>
+                          <input id="PACKAGE_MACHINE" name="shipment"type="checkbox" onChange={handleAllowedShippingTypes}></input>
+                     </div>
+                     <div className="in_line_containers">
+                         <lo>Courier</lo>
+                       <input id="COURIER" name="shipment"type="checkbox" onChange={handleAllowedShippingTypes}></input>
+                     </div>
+                
+                     <div className="in_line_containers">
+                        <lo>Pickup by seller</lo>
+                        <input id="PICKUP_BY_SELLER" name="shipment"type="checkbox" onChange={handleAllowedShippingTypes}></input>
+                </div>
                 <div className="in_line_containers">
-                    <button id="market_button" value="MARKET" onClick={handleAddMarket}>Charity organizations</button>
-                    <button id="charity_market_button" value="CHARITY_MARKET" onClick={handleAddMarket}>Charity organizations</button>
-                    <button id="eco_market_button" value="ECO_MARKET" onClick={handleAddMarket}>Eco organizations</button>
+                        <lo>Self delivery</lo>
+                        <input id="SELF_DELIVERY" name="shipment"type="checkbox" onChange={handleAllowedShippingTypes}></input>
                 </div>
-                <div className="center_container">
-                {markets.map((market)=><div className="in_line_containters">
-                    {market}<button value={market} onClick={handleRemoveMarkets}>Remove market</button>
-                </div>)}
 
                 </div>
+            
+               
+               <br/>
+               <br/>
+
+                
+
+
+                <label>Who should be able to claim your item ?</label>
+                <div className="center_container">
+                <div className="in_line_containers">
+                    <div>
+                        <select onClick={handleMarkets}>
+                            <option value="ECO_MARKET">Ecological organizations</option>
+                            <option value="CHARITY_MARKET">Charity organizations</option>
+                            <option value="MARKET">Everyone</option>
+                        </select>
+
+                    </div>
+                   
+                </div>
+                </div>
+                <label>Description</label>
+                <br/>
+                <div>
+                        <textarea id="description" className="text_input" onChange={handleSetDescription}/>
+                    </div>
+                <br/>
                 
                 <br/>
                 <div>
