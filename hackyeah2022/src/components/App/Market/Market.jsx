@@ -12,12 +12,8 @@ export const Market = () => {
     const [pageNumber, setPageNumber] = React.useState(0);
     const [hasMore, setHasMore] = React.useState(true);
     const [nextHasMoreWillBeFalse, setNextHasMoreWillBeFalse] = React.useState(false);
-    const [allCategoriesInactive, setAllCategoriesInactive] = React.useState(false);
     const { apiLink, token } = useAuth();
-
-    debugger;
-
-    console.log('x');
+    const [chosenCategory, setChosenCategory] = React.useState(null);
 
     const handleButtonClick = (event) => {
         setPageNumber(x => 0);
@@ -25,30 +21,53 @@ export const Market = () => {
         setHasMore(x => true);
         setPageSize(x => 9);
         const buttonId = event.target.id;
-        const indexOfCurCategory = categories.indexOf(categories.find(category => category.id.toString() === buttonId));
-        setCategories(categories =>
-            categories.map(obj => {
-                if (obj.id.toString() === buttonId) {
-                    if (categories[indexOfCurCategory].active) {
+        const indexOfCurCategory = parseInt(buttonId);
+
+        setChosenCategory(x => categories[parseInt(event.target.id)].name);
+/*
+        setCategories(cur => 
+            {cur.map((obj, index) => {
+                if(index === parseInt(buttonId) && obj.active === true){
+                    return {...obj, active: false};
+                } else if(index === parseInt(buttonId) && obj.active === false){
+                    return {...obj, active: true};
+                } else if(obj.active) {
+                    return {...obj, active: false};
+                } 
+            return obj;
+            })}
+        );
+        */
+    }
+        
+        /*
+        setCategories(x =>
+            x.map(obj => {
+                if (obj.indexOfCurCategory === parseInt(buttonId)) {
+                    if (x[indexOfCurCategory].active) {
                         return {...obj, active: false};
+                    } else {
+                        console.log(x);
+                        debugger;
                     }
                     return {...obj, active: true};
                 }
                 return obj;
             }),
         );
-    }
+        */
 
     useEffect(() => {
         const fetchCategories = async () => {
             const data = await fetch(`${apiLink}/categories`, {headers: {'authorization': token}})
-                .then(response => response.json());
+                .then(response => response.json()).then(response => response.map(x => { return {name: x}}));
+            /*
             const categories = data.map(category => {
                 category.active = true;
                 return category;
             });
-            setCategories(categories);
-            console.log(categories);
+            */
+            setCategories(x => data);
         }
         fetchCategories().catch(console.error);
         ;
@@ -56,48 +75,57 @@ export const Market = () => {
 
     const handleItemsFetching = () => {
         let fetchItems;
-        if (categories && categories.filter(category => category.active === true).length > 0) {
+        console.log(chosenCategory);
+        if (chosenCategory) {
             fetchItems = async () => {
-                const categoriesAsParam = categories.filter(category => category.active === true).map(category => `categoryIds=${category.id}`).join('&');
-                const data = await fetch(`${apiLink}/auctions?${categoriesAsParam}&pageNumber=${pageNumber}&pageSize=${pageSize}&status=LISTED`, {headers: {'authorization': token}})
+                //const categoryParameter = categories.find(x => x.active).name;
+                const data = await fetch(`${apiLink}/auctions?pageNumber=${pageNumber}&pageSize=${pageSize}&status=LISTED&category=${chosenCategory}`, {headers: {'authorization': token}})
                     .then(response => response.json());
-                if (Math.floor(data.totalNumberOfFiltItems / pageSize) - 1 === pageNumber) {
-                    setPageSize(cur => data.totalNumberOfFilteredItems % pageSize);
+                if (Math.floor(data.count / pageSize) - 1 === pageNumber) {
+                    setPageSize(cur => data.count % pageSize);
                     setNextHasMoreWillBeFalse(cur => true);
                 }
                 if (nextHasMoreWillBeFalse)
                     setHasMore(x => false);
                 
                 setPageNumber(x => x + 1);
-                setItems(cur => cur === [] ? data.items : cur.concat(data.items));
-                setNumberOfItems(x => data.totalNumberOfFilteredItems);
-                setAllCategoriesInactive(x => false);
-                console.log(data.totalNumberOfFilteredItems);
+                setItems(cur => cur === [] ? data.result : cur.concat(data.result));
+                setNumberOfItems(x => data.count);
+                debugger;
+                //setAllCategoriesInactive(x => false);
+                console.log(data.count);
             }
             fetchItems().catch(console.error);
         } else {
             setItems([]);
             if (categories) {
-                setAllCategoriesInactive(x => true);
+                //setAllCategoriesInactive(x => true);
             }
         }
     }
 
+    /*
     useEffect(() => {
         handleItemsFetching();
-    }, [categories ? categories.filter(category => category.active === true).length : 0]);
+    }, [categories ? chosenCategory : 0]);
+    */
 
-    if(categories !== null && categories.length === 0){
-        return(
+    useEffect(() => {
+        handleItemsFetching();
+    }, [chosenCategory]);
+
+
+    if(categories !== null && categories !== undefined && categories.length === 0){
+        return (
             <>
             <div className="account_with_category_container">
                 <div className="tile account_with_no_categories_message">
-                    Wybierz przynajmniej jedną kategorię z powyższych, aby zobaczyć dostępne pzedmioty
+                    Wybierz przynajmniej jedną kategorię z powyższych, aby zobaczyć dostępne przedmioty
                 </div>
             </div>
             </>
-        )
-    } else if (!categories || (!allCategoriesInactive && !items)) {
+        );
+    } else if (!categories || (chosenCategory && !items)) {
         return (
             <div id="centring_container">
                 <div className="dots-4"></div>
@@ -108,11 +136,11 @@ export const Market = () => {
             <>
                 <div id="items_container">
                     <div className="categories_container items_categories_container">
-                        {categories.map(cur => (<button key={cur.id} id={cur.id} onClick={handleButtonClick}
-                                                   className={cur.active ? 'active' : 'inactive'}>{cur.description}</button>))}
+                        {categories.map((cur, index) => (<button key={index} id={index} onClick={handleButtonClick}
+                                                   className={cur.name === chosenCategory ? 'active' : 'inactive'}>{cur.name}</button>))}
                     </div>
                     <div className="items">
-                        {allCategoriesInactive
+                        {!chosenCategory
                             ? <div className="tile no_selected_categories_tip">
                                 Żeby wyświetlić proponowane oferty, wybierz przynajmniej jedną z ról powyżej.
                             </div>
@@ -133,8 +161,8 @@ export const Market = () => {
                     </div>
                 </div>
             </>
-        );
+        )
     }
-}
+}  
 
 //<Footer/>

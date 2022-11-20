@@ -14,6 +14,7 @@ import AuthProvider from "./components/Authentication/AuthProvider";
 import {ProtectedRoute} from "./components/Authentication/ProtectedRoute";
 import { CharityRegistration } from './components/App/Registration/CharityRegistration';
 import { Profile } from "./components/App/Account/Profile";
+import { Item } from "./components/App/Market/Item/Item";
 import { UserRegistration } from './components/App/Registration/UserRegistration';
 import { CreateItem } from './components/App/Auction/CreateItem/CreateItem';
 
@@ -27,6 +28,7 @@ const App = () => {
                 <Route path="charity-registration" element={<CharityRegistration/>}/>
                 <Route path="/user/*" element={<ProtectedRoute><User /></ProtectedRoute>}>
                     <Route path="market" element={<Market/>}/>
+                    <Route path="market/*" element={<Item/>}/>
                     <Route path="home" element={<Home/>}/>
                     <Route path="navigation" element={<Navigation/>}/>
                     <Route path="new-item" element={<CreateItem/>}/>
