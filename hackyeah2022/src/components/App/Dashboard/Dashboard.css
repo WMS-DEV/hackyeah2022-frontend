@@ -1,0 +1,43 @@
+.dashboard-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--lightgrey);
+}
+
+.dashboard-page input{
+    background-color: #FFFFFF;
+    width: 35vw;
+    padding: 10px;
+    text-align: left;
+    padding-left: 40px;
+}
+
+.logoWrapper{
+    margin-right: 5vw;
+    margin-top: 15vh;
+    margin-bottom: 5vh;
+    padding: 5vh;
+    height: 7vh;
+    width: 50vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    /*background-size: auto;*/
+    background-size: cover;
+}
+
+.dashboard-page span{
+    color: #000000;
+    position: absolute;
+    padding: 10px;
+    min-width: 40px;
+    margin-top: 0 !important;
+}
+
+.search-wrapper{
+    width: 100%;
+    margin-bottom: 10px;
+}
