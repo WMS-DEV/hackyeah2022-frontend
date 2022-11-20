@@ -12,7 +12,8 @@
     row-gap:1vh;
 }
 .in_line_containers{
-    display: inline;
+    display:inline-block;
+    align-items: center;
 }
 /*
 .create_item{
