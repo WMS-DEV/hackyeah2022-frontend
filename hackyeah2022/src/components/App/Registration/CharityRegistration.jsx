@@ -110,7 +110,7 @@ export const CharityRegistration = () => {
         let bodyBlob = new Blob([bodyJSON], {type: "application/json"});
 
         formData.append("request",bodyBlob);
-        formData.append("image",image)
+        //formData.append("image",image)
 
         const requestOptions = {
             method: 'POST',
