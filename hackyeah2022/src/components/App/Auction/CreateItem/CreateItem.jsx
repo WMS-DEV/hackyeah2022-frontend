@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './CreateItem.css'
+import {useAuth} from "../../../Authentication/AuthProvider";
+
 
 const apiLink = 'https://donatenow-hackyeah.azurewebsites.net';
 
@@ -46,9 +48,12 @@ export const CreateItem = () => {
 
         if(categories.filter(category=>!category.active).indexOf(event.target.value)<0){
 
-            setCategories((()=> categories.map((category)=>category==event.target.value ? category.active=true : category)))
-
+            setCategories((()=> categories.map((category)=>category==event.target.value ? category.active=true : category)));
         }
+
+
+        
+
     }
 
 
@@ -75,7 +80,7 @@ export const CreateItem = () => {
                             <datalist name="categories" id="categories" className="text_input">
                                 {categories.map(category => <option value={category}>{category}</option>)}
                             </datalist>
-                
+
                     
             </div>
 
