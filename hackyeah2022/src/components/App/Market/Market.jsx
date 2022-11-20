@@ -15,6 +15,10 @@ export const Market = () => {
     const [allCategoriesInactive, setAllCategoriesInactive] = React.useState(false);
     const { apiLink, token } = useAuth();
 
+    debugger;
+
+    console.log('x');
+
     const handleButtonClick = (event) => {
         setPageNumber(x => 0);
         setItems(x => []);
@@ -44,6 +48,7 @@ export const Market = () => {
                 return category;
             });
             setCategories(categories);
+            console.log(categories);
         }
         fetchCategories().catch(console.error);
         ;
@@ -54,7 +59,7 @@ export const Market = () => {
         if (categories && categories.filter(category => category.active === true).length > 0) {
             fetchItems = async () => {
                 const categoriesAsParam = categories.filter(category => category.active === true).map(category => `categoryIds=${category.id}`).join('&');
-                const data = await fetch(`${apiLink}/auctions?${categoriesAsParam}&pageNumber=${pageNumber}&pageSize=${pageSize}&isCategoryOpen=1&isPanel=1`, {headers: {'authorization': token}})
+                const data = await fetch(`${apiLink}/auctions?${categoriesAsParam}&pageNumber=${pageNumber}&pageSize=${pageSize}&status=LISTED`, {headers: {'authorization': token}})
                     .then(response => response.json());
                 if (Math.floor(data.totalNumberOfFiltItems / pageSize) - 1 === pageNumber) {
                     setPageSize(cur => data.totalNumberOfFilteredItems % pageSize);
@@ -62,6 +67,7 @@ export const Market = () => {
                 }
                 if (nextHasMoreWillBeFalse)
                     setHasMore(x => false);
+                
                 setPageNumber(x => x + 1);
                 setItems(cur => cur === [] ? data.items : cur.concat(data.items));
                 setNumberOfItems(x => data.totalNumberOfFilteredItems);
