@@ -5,10 +5,11 @@
   --lightblue: #74c1e8;
   --blue: #3333cc;
   --lightgrey: #F2F0F1;
+  --white: #FFFFFF;
 }
 
 input {
-  background-color: #FFFFFF;
+  background-color: var(--lightgrey);
   border: none;
   border-color: #FFFFFF;
   border-radius: 2.5vh;
@@ -23,6 +24,7 @@ input {
 label {
   font-size: 1.75vh;
   margin-left: 2vh;
+  width:50vh;
 }
 
 h1, h2, h3, h4, h5, h6, p, span {
@@ -30,7 +32,7 @@ h1, h2, h3, h4, h5, h6, p, span {
 }
 
 body {
-  background-color: var(--lightgrey); 
+  background-color: var(--white); 
   margin: 0;
   /*
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -58,7 +60,7 @@ button:hover {
   cursor: pointer;
   border-color: var(--green);
   background-color: var(--green);
-  color: var(--lightgrey);
+  color: var(--white);
 }
 
 code {
