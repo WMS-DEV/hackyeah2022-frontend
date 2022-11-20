@@ -1,0 +1,238 @@
+  #items_container {
+    overflow: scroll;
+    min-height: 82vh;
+  }
+  
+  .categories_container {
+    background-color: #454444;
+    border-radius: 2vh;
+    padding: 2vh;
+    margin: 8vh 8.5vw 4vh 8.5vw;
+  }
+  
+  .categories_container.items_categories_container {
+    padding: 1vh 2vw;
+  }
+  
+  .categories_container button {
+    margin: 1vh 2vw 1vh 0;
+    width: fit-content;
+    padding: 0 30px;
+  }
+  
+  .categories_container button:hover {
+    cursor: pointer;
+  }
+  
+  .item_container {
+    margin-bottom: 3vh;
+  }
+  
+  .categories_container button.inactive,
+  .signForItem.inactive,
+  .sign_for_item_table button.disabled,
+  #signForItemButtonContainer button.inactive,
+  .buttons_container .disabled,
+  .send_billing_decision_button_container .disabled {
+    border-color: #D3D3D3;
+    background-color: #D3D3D3;
+    color: #454444;
+  }
+  
+  .signForItem.inactive:hover,
+  .buttons_container .disabled {
+    cursor: default;
+  }
+  
+  #orange {
+    color: #FF5C00;
+  }
+  
+  .item_container button {
+    margin: 0.75vh;
+  }
+  
+  .signForItemButtonContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .categories_container button.active,
+  #sign_for_item_table button.inactive {
+    background-color: #FF5C00;
+    border-color: #FF5C00;
+    color: #FFFFFF;
+  }
+  
+  #sign_for_item_table button.active {
+    background-color: #FFFFFF;
+    border-color: #FFFFFF;
+    color: #FF5C00;
+    cursor: default;
+  }
+  
+  #sign_for_item_table {
+    background-color: #454444;
+    display: grid;
+    grid-template-columns: 4fr 1fr 1fr 1fr;
+    margin: 0;
+  }
+  
+  #sign_for_item_table button {
+    width: 10rem;
+  }
+  
+  .item {
+    width: 25vw;
+    margin: 2vh auto;
+    height: 25vh;
+  }
+  
+  .item.tile.new {
+    border: 2.5px solid #FF5C00;
+  }
+  
+  .infinite-scroll-component {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 6.5vw 6.5vh 6.5vw;
+  }
+  
+  .form_categories_container {
+    margin: 2vh 0;
+    padding: 0;
+  }
+  
+  .no_selected_categories_tip {
+    margin: 0 8.5vw;
+    height: 50px;
+  }
+  
+  .account_with_no_category_container{
+    min-height: 82vh;
+  }
+  
+  .account_with_no_categories_message {
+    margin: 10vh 10vw;
+    padding: 5vh 5vw;
+    line-height: 125%;
+  }
+  
+  @media only screen and (max-width: 1040px) {
+    .item {
+      width: 39vw;
+      margin: 2vh auto;
+    }
+  }
+  
+  @media only screen and (max-width: 765px) {
+    .item {
+      min-width: 81vw;
+      max-width: 81vw;
+      margin: 2vh auto
+    }
+  
+    .infinite-scroll-component {
+      margin: 0;
+    }
+  }
+  
+  /* Market */
+  #new_item {
+    margin: 6vh calc(30vw - 6px);
+    padding: auto;
+    width: 40vw;
+  }
+  
+  .admin.categories_container {
+    margin-top: 0;
+  }
+  
+  
+  /* Item */
+  .item.tile {
+    display: grid;
+    grid-template-rows: 12fr 3fr 3fr 3fr 2fr;
+    grid-template-columns: 4fr 1fr;
+    grid-template-areas:
+      "name name"
+      "photos new"
+      "location stake"
+      "date stake"
+      "progress progress";
+  }
+  
+  .item.tile a {
+    background-color: #454444;
+  }
+  
+  #item_name {
+    grid-area: name;
+    font-size: 3vh;
+  }
+  
+  #item_name a {
+    margin: 0;
+  }
+  
+  #item_photos {
+    grid-area: photos;
+  }
+  
+  #item_location {
+    grid-area: location;
+  }
+  
+  #item_date {
+    grid-area: date;
+  }
+  
+  #item_stake {
+    grid-area: stake;
+  }
+  
+  #item_progress {
+    grid-area: progress;
+  }
+  
+  #item_new {
+    grid-area: new;
+    color: #FF5C00;
+    font-size: 2vh;
+  }
+  
+  .item.tile p {
+    font-size: 1.5625vh;
+    margin: 1vh;
+    text-align: left;
+  }
+  
+  .progress_container {
+    background-color: #454444;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .progress {
+    background-color: #D3D3D3;
+    justify-content: flex-start;
+    border-radius: 1rem;
+    align-items: center;
+    position: relative;
+    display: flex;
+    height: 5px;
+    width: 90%;
+    margin: 0 0.5rem;
+  }
+  
+  .progress-value {
+    box-shadow: 0 10px 40px -10px #fff;
+    border-radius: 2.5px;
+    background-color: #FF5C00;
+    color: #646464;
+    height: 5px;
+}
