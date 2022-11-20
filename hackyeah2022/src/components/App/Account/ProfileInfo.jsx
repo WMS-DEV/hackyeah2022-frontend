@@ -27,7 +27,7 @@ export function ProfileInfo(props) {
                 <div className='profileInfoPictureContainer'>
 
                     <label className="profilePictureInput" htmlFor="uploadPicture">
-                        <img className='profileInfoPicture' src={props.data.account.profilePictureUrl}/>
+                        <img className='profileInfoPicture' src={props.data.account.pictureUrl}/>
 
                         <div className='changeProfilePicture'>
 
@@ -48,7 +48,7 @@ export function ProfileInfo(props) {
                 </div>
                 <div className='profileInfoMail'>
                     <h4>Email</h4>
-                    <h3>{props.data.account.email}</h3>
+                    <h3>michal06@interia.eu</h3>
                 </div>
                 <div className='profileInfoPassword'>
                     <h4>Password</h4>
