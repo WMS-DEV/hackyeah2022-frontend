@@ -66,6 +66,8 @@ export const Navigation = () => {
                 <div className={window.location.href.match('auction') ? 'underline' : 'no_underline'}><Link to="/user/">Auctions</Link></div>
                 <div className={window.location.href.match('my-items') ? 'underline' : 'no_underline'}><Link to="/user/my-items">My items</Link></div>
                 <div className={window.location.href.match('settings') ? 'underline' : 'no_underline'}><Link to="/user/settings">Settings</Link></div>
+                <div className={window.location.href.match('new-item') ? 'underline' : 'no_underline'}><Link to="/user/new-item">Add item</Link></div>
+
             </nav>
         )
     } else {
@@ -75,6 +77,7 @@ export const Navigation = () => {
                 <div className={window.location.href.match('auction') ? 'underline' : 'no_underline'}><Link to="/user/auction">Auctions</Link></div>
                 <div className={window.location.href.match('my-items') ? 'underline' : 'no_underline'}><Link to="/user/my-items">My items</Link></div>
                 <div className={window.location.href.match('settings') ? 'underline' : 'no_underline'}><Link to="/user/settings">Settings</Link></div>
+                <div className={window.location.href.match('new-item') ? 'underline' : 'no_underline'}><Link to="/user/new-item">Add item</Link></div>
             </nav>
         )
     }   
