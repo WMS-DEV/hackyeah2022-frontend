@@ -7,10 +7,11 @@ const Navigation = () => {
 
     return(
         <nav>
-            <NavLink to='/home'>Home</NavLink>
-            <NavLink to="/dashboard">Dashboard</NavLink>
-            <NavLink to="/preferences">Preferences</NavLink>
-            <NavLink to="/charity-registration">Charity Registration</NavLink>
+            <NavLink to='/user/home'>Home</NavLink>
+            <NavLink to="/user/dashboard">Dashboard</NavLink>
+            <NavLink to="/user/preferences">Preferences</NavLink>
+            <NavLink to="/user/login">LoginnnPage</NavLink>
+            <NavLink to="/user/charity-registration">Charity Registration</NavLink>
 
             {token && (
                 <button type="button" onClick={onLogout}>
