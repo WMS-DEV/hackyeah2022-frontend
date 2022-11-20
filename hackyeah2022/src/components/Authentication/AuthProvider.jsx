@@ -1,4 +1,4 @@
-import {createContext, useContext, useState} from "react";
+import {createContext, useContext, useState, useEffect} from "react";
 import {useNavigate,  useLocation} from "react-router-dom";
 
 const AuthContext = createContext(null);
@@ -11,17 +11,25 @@ const AuthProvider = ({ children }) => {
     const location = useLocation();
 
     const apiLink = 'https://donatenow-hackyeah.azurewebsites.net'
-    const [token, setToken] = useState(null);
+    const [token, setToken] = useState(() => localStorage.getItem('token') ? localStorage.getItem('token') : false);
     const [username, setUsername] = useState(null);
     const [password, setPassword] = useState(null);
 
-    const auth = async (username, password) => {
+    useEffect(() => {
+        localStorage.setItem('token', token);
+    }, [token]);
+
+    const auth = async () => {
+
         const data = await fetch(`${apiLink}/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({"username": "michal", "password": "root"})
+            body: JSON.stringify({
+                "username": username,
+                "password": password
+            })
         }).then((response)=>{
             console.log(response.headers.get('authorization'))
             setToken(response.headers.get('authorization'));

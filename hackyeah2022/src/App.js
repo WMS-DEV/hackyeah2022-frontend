@@ -9,10 +9,11 @@ import Home from "./components/App/Home/Home"
 import {User} from "./components/App/User/User"
 import useToken from "./useToken";
 import {useEffect, useState, createContext} from "react";
-import Navigation from "./components/Navigation/Navigation"
+import {Navigation} from "./components/Navigation/Navigation"
 import AuthProvider from "./components/Authentication/AuthProvider";
 import {ProtectedRoute} from "./components/Authentication/ProtectedRoute";
 import { CharityRegistration } from './components/App/Registration/CharityRegistration';
+import { Profile } from "./components/App/Account/Profile";
 
 const App = () => {
     return (
@@ -24,6 +25,7 @@ const App = () => {
                     <Route path="auction" element={<Auction/>}/>
                     <Route path="home" element={<Home/>}/>
                     <Route path="navigation" element={<Navigation/>}/>
+                    <Route path="account" element={<Profile/>}/>
                     <Route path="charity-registration" element={<CharityRegistration/>}/>
                     <Route path="dashboard" element={<Dashboard/>}/>
                     <Route path="preferences" element={

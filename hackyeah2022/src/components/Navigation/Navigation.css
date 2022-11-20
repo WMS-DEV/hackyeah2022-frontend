@@ -1,0 +1,96 @@
+nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: var(--green);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 5vh;
+    z-index: 1;
+  }
+  
+  nav.icons {
+    background-color: var(--green);
+    height: 60px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  
+  nav.icons a {
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav img {
+    height: 5vh;
+    background-color: var(--green);
+  }
+  
+  a {
+    background-color: var(--green);
+    color: #FFFFFF;
+    text-decoration: none;
+    margin: auto 5px;
+  }
+  
+  a:hover {
+    color: var(--light-green);
+  }
+  
+  @keyframes underline-appearance {
+    from {
+      border-bottom: 3px solid var(--green)
+    }
+  
+    to {
+      border-bottom: 3px solid var(--light-green)
+    }
+  }
+  
+  @keyframes icons-underline-appearance {
+    from {
+      border-bottom: 3px solid var(--green)
+    }
+  
+    to {
+      border-bottom: 3px solid var(--light)
+    }
+  }
+  
+  div.underline {
+    padding-top: 3px;
+    animation-name: underline-appearance;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  
+  div.no_underline {
+    animation-name: underline-appearance;
+    border-bottom: 3px solid var(--green);
+    padding-top: 3px;
+  }
+  
+  .icons div.underline {
+    background-color: var(--green);
+    margin: auto 0;
+  }
+  
+  .icons div.no_underline {
+    border-bottom: 3px solid var(--green);
+    background-color: var(--green);
+    margin: auto 0;
+    padding-top: 3px;
+  }
+  
+  nav div {
+    background-color: var(--green);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 1rem;
+  }
