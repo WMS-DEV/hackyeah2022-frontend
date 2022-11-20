@@ -40,7 +40,7 @@ export function ProfileInfo(props) {
                 </div>
                 <div className='profileInfoFirstName'>
                     <h4>First Name</h4>
-                    <h3>{props.data.account.name}</h3>
+                    <h3>{props.data.account.firstName}</h3>
                 </div>
                 <div className='profileInfoSurname'>
                     <h4>Surname</h4>

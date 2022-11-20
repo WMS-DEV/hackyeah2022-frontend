@@ -53,7 +53,7 @@ export const AuctionChart = (props) => {
         labels: props.data.label,
         datasets: [
             {
-                label: 'Aukcje',
+                label: 'Auctions',
                 data: props.data.data,
                 backgroundColor: '#009900',
                 color: '#000000',
