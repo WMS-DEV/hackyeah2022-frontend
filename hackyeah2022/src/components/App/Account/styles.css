@@ -1,0 +1,223 @@
+.profilePage {
+    margin: 10vh 0 5vh 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+}
+
+.profileInfo {
+    background-color: var(--lightgrey);
+    height: auto;
+    width: 135vh;
+    border-radius: 1rem;
+    display: grid;
+    column-gap: 5vh;
+    row-gap: 2vh;
+    grid-template-columns: 2fr 5fr;
+    grid-template-rows: 1fr 1fr 1fr 1.5fr;
+    padding: 5vh;
+    padding-bottom: 2.5vh;
+    text-align: left;
+}
+
+.profileInfo div {
+    color: #000000;
+    background-color: var(--lightgrey);
+}
+
+.profileInfo h4 {
+    background-color: var(--lightgrey);
+    margin-bottom: 1vh;
+    font-size: 1.5vh;
+}
+
+.profileInfo h3 {
+    line-height: 4vh;
+    background-color: var(--lightgrey);
+    color: #000000;
+    font-size: 3.5vh;
+    display: inline-block;
+}
+
+.profileInfoPictureContainer{
+    background-color: #0000;
+    position: relative;
+    grid-area: 1/1/5/2;
+    padding-bottom: 4.5vh;
+    border-radius: 1000px;
+}
+
+.profileInfoPicture {
+    display: block;
+    aspect-ratio: 1/1;
+    height: 32vh;
+    border-radius: 500px;
+    margin-left: 1vh;
+    opacity: 1;
+    transition: 0.5s ease;
+    backface-visibility: hidden;
+    cursor: pointer;
+}
+
+.changeProfilePicture{
+    cursor: pointer;
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: #0000 !important;
+}
+
+.changeProfilePicture span{
+    background-color: #0000;
+    font-size: 10vh;
+    cursor: pointer;
+}
+.changeProfilePicture span:hover{
+    color: #ffffff;
+}
+
+.changeProfilePicture h5{
+    background-color: #0000;
+}
+
+.profileInfoPictureContainer:hover .profileInfoPicture {
+    opacity: 0.3;
+}
+
+.profileInfoPictureContainer:hover .changeProfilePicture {
+    opacity: 1;
+}
+
+.profileInfo FirstName {
+    grid-area: 1/2/2/3;
+
+}
+
+.profileInfo Surname {
+    grid-area: 2/2/3/3;
+}
+
+.profileInfo Password {
+    grid-area: 3/2/4/3;
+}
+
+.fakePassword {
+    font-size: 5vh !important;
+    margin-top: 3vh;
+}
+
+.profilePage{
+    min-height: 82vh;
+}
+  .chartContainer{
+      padding:  0 2.5vh 2vh 2.5vh;
+      color: #000000;
+      border-radius: 1rem;
+      margin-top: 5vh;
+      background-color: var(--lightgrey);
+      height: auto;
+      width: 135vh;
+      justify-content: center;
+  }
+
+.billingChart{
+    position: relative;
+    background-color: #0000;
+    height: auto;
+    width: 130vh;
+}
+
+.billingChart canvas{
+    position: relative;
+    height: 40vh;
+    width: auto;
+    padding: 1vh;
+    background-color: var(--lightgrey);
+    color: #000000;
+    vertical-align: middle;
+}
+
+.secondStatsContainer{
+
+}
+
+.contractorChartContainer{
+    padding:  0 2.5vh 0 2.5vh;
+    color: #000000;
+    border-radius: 1rem;
+    margin-top: 5vh;
+    background-color: var(--lightgrey);
+    height: auto;
+    width: auto;
+    justify-content: center;
+    display: inline-block;
+    margin-right: 5vh;
+
+}
+
+.contractorChart{
+    position: relative;
+    background-color: #0000;
+    height: auto;
+    width: 62.5vh;
+}
+
+.contractorChart canvas{
+    position: relative;
+    height: 40vh;
+    width: 20vh;
+    padding: 1vh;
+    background-color: var(--lightgrey);
+    color: #000000;
+}
+
+.numberStatisticContainer{
+    background-color: var(--lightgrey);
+    width: 62.5vh;
+    height: 62.5vh;
+    border-radius: 1rem;
+    display: inline-block;
+    padding: 2.5vh;
+
+}
+
+.numberStatisticContainer h3{
+    background-color: #0000;
+    font-size: 6vh;
+    color: #000000;
+    text-align: center;
+    font-weight: 700;
+}
+
+
+.numberStatisticContainer h4{
+    background-color: #0000;
+    color: #000000;
+    font-size: 3vh;
+    text-align: left;
+    margin-top: 5vh;
+    text-align: left;
+    float: left;
+}
+
+.numberStatisticContainer h5{
+    background-color: #0000;
+    margin-top: 5vh;
+    color: #000000;
+    font-size: 3vh;
+    text-align: right;
+    float: right;
+}
+
+.statsBox{
+    background-color: #0000;
+    display: flex;
+    justify-content: space-between;
+}

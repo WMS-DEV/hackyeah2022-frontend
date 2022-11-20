@@ -99,7 +99,7 @@ body {
 }
 
 button {
-  background-color: var(--lightgreen);
+  background-color: var(--white);
   border-color: var(--lightgreen);
   border-radius: 2.5vh;
   border-width: 0px;
