@@ -8,9 +8,9 @@ export const CreateItem = () => {
 
     const [title, setTitle] = React.useState(null);
     const [location, setLocation] = React.useState();
-    const [activeCategories, setActiveCategories] = React.useState([]);
     const [categories, setCategories] = React.useState(null);
     const [allowedShippingTypes, setAllowedShippingTypes] = React.useState([]);
+    const [selectedCategory, setSelectedCategory] = React.useState(null);
 
     const { token } = useAuth();
 
@@ -23,6 +23,7 @@ export const CreateItem = () => {
                 return category;
             });
             setCategories(allCategories);
+            console.log(categories);
         }
         fetchRoles().catch(console.error);;
     }, []); 
@@ -35,12 +36,22 @@ export const CreateItem = () => {
     const handleSetLocation=(event)=>{
         setLocation(event.target.value);
     }
-    const handleSetActiveCategories=(event)=>{
-        setActiveCategories(event.target.value);
-    }
     const handleAllowedShippingTypes=(event)=>{
         setAllowedShippingTypes(event.target.value);
     }
+    const handleSelectedCategory=(event)=>{
+        setSelectedCategory(event.target.value);
+    }
+    const handleAddNewCategory = (event) => {
+
+        if(categories.filter(category=>!category.active).indexOf(event.target.value)<0){
+
+            setCategories((()=> categories.map((category)=>category==event.target.value ? category.active=true : category)))
+
+        }
+    }
+
+
 
 
 
@@ -60,10 +71,12 @@ export const CreateItem = () => {
                 <input type="text" className="text_input"></input>
 
                 <label>Categories</label>
-                <input name="categories" list="categories" className="text_input" onChange={handleSelectedContractor} type="text"/>
+                <input name="categories" list="categories" className="text_input" onChange={handleSelectedCategory} type="text"/>
                             <datalist name="categories" id="categories" className="text_input">
                                 {categories.map(category => <option value={category}>{category}</option>)}
                             </datalist>
+                
+                    
             </div>
 
             
