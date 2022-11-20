@@ -65,7 +65,7 @@ export const Navigation = () => {
                 <div className={window.location.href.match('dashboard') ? 'underline' : 'no_underline'}><Link to="/user/dashboard">Home</Link></div>
                 <div className={window.location.href.match('market') ? 'underline' : 'no_underline'}><Link to="/user/market">Market</Link></div>
                 <div className={window.location.href.match('my-items') ? 'underline' : 'no_underline'}><Link to="/user/my-items">My items</Link></div>
-                <div className={window.location.href.match('settings') ? 'underline' : 'no_underline'}><Link to="/user/settings">Settings</Link></div>
+                <div className={window.location.href.match('account') ? 'underline' : 'no_underline'}><Link to="/user/account">Account</Link></div>
                 <div className={window.location.href.match('new-item') ? 'underline' : 'no_underline'}><Link to="/user/new-item">Add item</Link></div>
 
             </nav>
@@ -76,7 +76,7 @@ export const Navigation = () => {
                 <div className={window.location.href.match('dashboard') ? 'underline' : 'no_underline'}><Link to="/user/dashboard">Home</Link></div>
                 <div className={window.location.href.match('auction') ? 'underline' : 'no_underline'}><Link to="/user/auction">Auctions</Link></div>
                 <div className={window.location.href.match('my-items') ? 'underline' : 'no_underline'}><Link to="/user/my-items">My items</Link></div>
-                <div className={window.location.href.match('settings') ? 'underline' : 'no_underline'}><Link to="/user/settings">Settings</Link></div>
+                <div className={window.location.href.match('account') ? 'underline' : 'no_underline'}><Link to="/user/account">Account</Link></div>
                 <div className={window.location.href.match('new-item') ? 'underline' : 'no_underline'}><Link to="/user/new-item">Add item</Link></div>
             </nav>
         )
