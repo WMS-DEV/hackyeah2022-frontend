@@ -4,7 +4,7 @@
   }
   
   .categories_container {
-    background-color: #454444;
+    background-color: var(--lightgreen);
     border-radius: 2vh;
     padding: 2vh;
     margin: 8vh 8.5vw 4vh 8.5vw;
@@ -34,9 +34,9 @@
   #signForItemButtonContainer button.inactive,
   .buttons_container .disabled,
   .send_billing_decision_button_container .disabled {
-    border-color: #D3D3D3;
-    background-color: #D3D3D3;
-    color: #454444;
+    border-color: var(--lightgrey);
+    background-color: var(--lightgrey);
+    color: var(--lightgreen);
   }
   
   .signForItem.inactive:hover,
@@ -45,7 +45,7 @@
   }
   
   #orange {
-    color: #FF5C00;
+    color: var(--green);
   }
   
   .item_container button {
@@ -60,20 +60,20 @@
   
   .categories_container button.active,
   #sign_for_item_table button.inactive {
-    background-color: #FF5C00;
-    border-color: #FF5C00;
+    background-color: var(--green);
+    border-color: var(--green);
     color: #FFFFFF;
   }
   
   #sign_for_item_table button.active {
     background-color: #FFFFFF;
     border-color: #FFFFFF;
-    color: #FF5C00;
+    color: var(--green);
     cursor: default;
   }
   
   #sign_for_item_table {
-    background-color: #454444;
+    background-color: var(--lightgreen);
     display: grid;
     grid-template-columns: 4fr 1fr 1fr 1fr;
     margin: 0;
@@ -90,7 +90,7 @@
   }
   
   .item.tile.new {
-    border: 2.5px solid #FF5C00;
+    border: 2.5px solid var(--green);
   }
   
   .infinite-scroll-component {
@@ -164,7 +164,7 @@
   }
   
   .item.tile a {
-    background-color: #454444;
+    background-color: var(--lightgreen);
   }
   
   #item_name {
@@ -198,7 +198,7 @@
   
   #item_new {
     grid-area: new;
-    color: #FF5C00;
+    color: var(--green);
     font-size: 2vh;
   }
   
@@ -209,7 +209,7 @@
   }
   
   .progress_container {
-    background-color: #454444;
+    background-color: var(--lightgreen);
     display: flex;
     height: 100%;
     width: 100%;
@@ -218,7 +218,7 @@
   }
   
   .progress {
-    background-color: #D3D3D3;
+    background-color: var(--lightgrey);
     justify-content: flex-start;
     border-radius: 1rem;
     align-items: center;
