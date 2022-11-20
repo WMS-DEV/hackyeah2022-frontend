@@ -109,7 +109,7 @@ export const CharityRegistration = () => {
         var formData = new FormData();
         let bodyBlob = new Blob([bodyJSON], {type: "application/json"});
 
-        formData.append("organization",bodyBlob);
+        formData.append("request",bodyBlob);
         formData.append("image",image)
 
         const requestOptions = {
@@ -119,7 +119,7 @@ export const CharityRegistration = () => {
             redirect: 'follow'
           };
 
-          const postRequest = fetch(`${apiLink}/register-charity`, requestOptions).then(response => response.text())
+          const postRequest = fetch(`${apiLink}/admin/organizations/register`, requestOptions).then(response => response.text())
        .then(result => console.log(result))
        .catch(error => console.log('error', error));
           
