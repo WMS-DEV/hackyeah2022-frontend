@@ -3,6 +3,7 @@
    /* display: block;*/
     align-items: left;
     flex-direction: column;
+    /*margin-top: 20vh;*/
 }
 .form_field{
     display: grid;
@@ -11,5 +12,27 @@
     row-gap:1vh;
 }
 .in_line_containers{
-   /* display: inline;*/
+    display: inline;
+}
+/*
+.create_item{
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+}
+*/
+.description{
+    width: 50%;
+    height: 30%;
+}
+select{
+background-color: var(--ligthgray);
+  border-color: #000000;
+  border-radius: 2.5vh;
+  border-width: 0px;
+  font-size: 1.25rem;
+  height: 5vh;
+  width: 25rem;
+  margin: 2rem 2.5rem;
+  transition: color 0.25s ease-in;
+
 }

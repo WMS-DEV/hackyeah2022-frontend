@@ -45,14 +45,6 @@ export const CreateItem = () => {
     }
     const handleLoadImage=(event)=>{
         setImage(event.target.files[0]);
-        event.preventDefault();
-    }
-    const handleMarkets=(event)=>{
-        if(markets.indexOf(event.target.value)<0){
-            markets.append(event.target.value);
-        }
-
-        setMarkets(event.target.value);
     }
     const  handleRemoveMarkets = (event) =>{
         console.log(event);
@@ -92,12 +84,13 @@ export const CreateItem = () => {
         console.log(bodyJSON);
 
         let headers = new Headers();
+        headers.append("Authorization",token)
 
         var formData = new FormData();
         let bodyBlob = new Blob([bodyJSON], {type: "application/json"});
 
         formData.append("request",bodyBlob);
-        //formData.append("image",image)
+        formData.append("image",image)
 
         const requestOptions = {
             method: 'POST',
@@ -106,7 +99,7 @@ export const CreateItem = () => {
             redirect: 'follow'
           };
 
-          const postRequest = fetch(`${apiLink}/admin/organizations/register`, requestOptions).then(response => response.text())
+          const postRequest = fetch(`${apiLink}/auction`, requestOptions).then(response => response.text())
        .then(result => console.log(result))
        .catch(error => console.log('error', error));
 
@@ -115,18 +108,18 @@ export const CreateItem = () => {
 
     return (
         <div>
-            <div className="center_container">
+            <div className="create_item center_container">
                 <h1>Put an item on auction!</h1>
             </div>
 
             <div className="center_container">
                 <label>Title</label>
                 <br/>
-                <input type="text" className="text_input"></input>
+                <input type="text" className="text_input" onChange={handleSetTitle}></input>
                 <br/>
                 <label>Location</label>
                 <br/>
-                <input type="text" className="text_input"></input>
+                <input type="text" className="text_input" onChange={handleSetLocation}></input>
                 <br/>
                 <label>Categories</label>
                 <br/>
@@ -139,18 +132,22 @@ export const CreateItem = () => {
                 <input type="file" className="text_input" accept="image/*" onClick={handleLoadImage}></input>
                 <br/>
                 <label>Who should be able to claim your item ?</label>
-
+                <div className="center_container">
                 <div className="in_line_containers">
                     <button id="market_button" value="MARKET" onClick={handleAddMarket}>Charity organizations</button>
                     <button id="charity_market_button" value="CHARITY_MARKET" onClick={handleAddMarket}>Charity organizations</button>
                     <button id="eco_market_button" value="ECO_MARKET" onClick={handleAddMarket}>Eco organizations</button>
                 </div>
-                <div className="center_container">
                 {markets.map((market)=><div className="in_line_containters">
                     {market}<button value={market} onClick={handleRemoveMarkets}>Remove market</button>
                 </div>)}
-
                 </div>
+                <label>Description</label>
+                <br/>
+                <div>
+                        <textarea id="description" className="text_input" onChange={handleSetDescription}/>
+                    </div>
+                <br/>
                 
                 <br/>
                 <div>

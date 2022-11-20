@@ -12,7 +12,7 @@ import {useEffect, useState, createContext} from "react";
 import {Navigation} from "./components/Navigation/Navigation"
 import AuthProvider from "./components/Authentication/AuthProvider";
 import {ProtectedRoute} from "./components/Authentication/ProtectedRoute";
-import { CharityRegistration } from './components/App/Registration/CharityRegistration';
+import { OrganizationRegistration } from './components/App/Registration/CharityRegistration';
 import { Profile } from "./components/App/Account/Profile";
 import { Item } from "./components/App/Market/Item/Item";
 import { UserRegistration } from './components/App/Registration/UserRegistration';
@@ -27,7 +27,7 @@ const App = () => {
                 <Route path="login" element={<LoginPage/>}/>
                 <Route path="register" element={<Register/>}/>
                 <Route path="user-registration" element={<UserRegistration/>}/>
-                <Route path="charity-registration" element={<CharityRegistration/>}/>
+                <Route path="/register/organization" element={<OrganizationRegistration/>}/>
                 <Route path="/user/*" element={<ProtectedRoute><User /></ProtectedRoute>}>
                     <Route path="market" element={<Market/>}/>
                     <Route path="market/item/*" element={<Item/>}/>

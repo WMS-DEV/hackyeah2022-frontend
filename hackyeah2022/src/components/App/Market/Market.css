@@ -148,91 +148,13 @@
   .admin.categories_container {
     margin-top: 0;
   }
-  
-  
-  /* Item */
-  .item.tile {
-    display: grid;
-    grid-template-rows: 12fr 3fr 3fr 3fr 2fr;
-    grid-template-columns: 4fr 1fr;
-    grid-template-areas:
-      "name name"
-      "photos new"
-      "location stake"
-      "date stake"
-      "progress progress";
-  }
-  
-  .item.tile a {
-    background-color: var(--lightgreen);
-  }
-  
-  #item_name {
-    grid-area: name;
-    font-size: 3vh;
-  }
-  
-  #item_name a {
-    margin: 0;
-  }
-  
-  #item_photos {
-    grid-area: photos;
-  }
-  
-  #item_location {
-    grid-area: location;
-  }
-  
-  #item_date {
-    grid-area: date;
-  }
-  
-  #item_stake {
-    grid-area: stake;
-  }
-  
-  #item_progress {
-    grid-area: progress;
-  }
-  
-  #item_new {
-    grid-area: new;
-    color: var(--green);
-    font-size: 2vh;
-  }
-  
-  .item.tile p {
-    font-size: 1.5625vh;
-    margin: 1vh;
-    text-align: left;
-  }
-  
-  .progress_container {
-    background-color: var(--lightgreen);
-    display: flex;
-    height: 100%;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .progress {
-    background-color: var(--lightgrey);
-    justify-content: flex-start;
-    border-radius: 1rem;
-    align-items: center;
-    position: relative;
-    display: flex;
-    height: 5px;
-    width: 90%;
-    margin: 0 0.5rem;
-  }
-  
-  .progress-value {
-    box-shadow: 0 10px 40px -10px #fff;
-    border-radius: 2.5px;
-    background-color: #FF5C00;
-    color: #646464;
-    height: 5px;
+
+
+#items_container::-webkit-scrollbar {
+  display: none;
+}
+
+#items_container {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;
 }
