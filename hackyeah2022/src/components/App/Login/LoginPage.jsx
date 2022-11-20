@@ -6,9 +6,11 @@ import {useAuth} from "../../Authentication/AuthProvider";
 
 export default function LoginPage({setToken}) {
 
-    const { apiLink, onLogin, onUsernameChange, onPasswordChange} = useAuth();
+    const { apiLink, onLogin, onUsernameChange, onPasswordChange, loadingLogin, setLoadingLogin} = useAuth();
 
     const twig = require("../../../assets/twig.jpg");
+
+    const [ buttonLoading, setButtonLoading] = useState(false)
 
     return (
         <>
@@ -27,7 +29,8 @@ export default function LoginPage({setToken}) {
                     <input type="password" onChange={onPasswordChange}/>
                     <br/>
                     <div>
-                        <button onClick={onLogin}>Submit</button>
+                        <button onClick={onLogin} className={ loadingLogin ? "button-loading" : "button-notloading"}><i
+                            className="fa fa-spinner fa-spin"></i>Submit</button>
                     </div>
                 </div>
                 </div>
