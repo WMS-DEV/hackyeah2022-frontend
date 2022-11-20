@@ -1,7 +1,7 @@
 import React from "react";
 import {Outlet} from "react-router-dom";
 import { useAuth} from "../../Authentication/AuthProvider";
-import Navigation from "../../Navigation/Navigation";
+import {Navigation} from "../../Navigation/Navigation";
 
 
 export const User = () => {

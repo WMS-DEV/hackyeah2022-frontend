@@ -4,9 +4,6 @@ import PropTypes from 'prop-types';
 import twig from "../../../assets/twig.jpg";
 import {useAuth} from "../../Authentication/AuthProvider";
 
-
-
-
 export default function LoginPage({setToken}) {
 
     const { apiLink, onLogin, onUsernameChange, onPasswordChange} = useAuth();

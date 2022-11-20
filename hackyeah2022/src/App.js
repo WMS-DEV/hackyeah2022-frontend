@@ -9,7 +9,7 @@ import Home from "./components/App/Home/Home"
 import {User} from "./components/App/User/User"
 import useToken from "./useToken";
 import {useEffect, useState, createContext} from "react";
-import Navigation from "./components/Navigation/Navigation"
+import {Navigation} from "./components/Navigation/Navigation"
 import AuthProvider from "./components/Authentication/AuthProvider";
 import {ProtectedRoute} from "./components/Authentication/ProtectedRoute";
 import { CharityRegistration } from './components/App/Registration/CharityRegistration';
