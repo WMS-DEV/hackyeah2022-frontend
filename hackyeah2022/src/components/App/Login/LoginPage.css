@@ -35,3 +35,27 @@
     margin: 1rem;
     margin-bottom: 0.25rem;
 }
+
+.button-loading{
+    background-color: #D3D3D3;
+    cursor: wait !important;
+    color: #808080;
+}
+
+.button-loading:hover{
+    background-color: #D3D3D3;
+    color: #808080;
+}
+
+.button-notloading{
+    background-color: var(--lightgreen);
+}
+
+.button-loading i{
+    display: compact;
+    margin-right: 1vh;
+}
+
+.button-notloading i {
+    display: none;
+}

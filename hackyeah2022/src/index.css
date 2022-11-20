@@ -24,6 +24,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
+
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -47,9 +48,11 @@ table {
 	border-spacing: 0;
 }
 
+/*
 * {
   box-sizing: content-box;
 }
+*/
 
 :root{
   --black: #000000;
@@ -115,6 +118,7 @@ button:hover {
   border-color: var(--green);
   background-color: var(--green);
   color: var(--white);
+
 }
 
 code {

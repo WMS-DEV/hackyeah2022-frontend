@@ -3,7 +3,7 @@ import {Link, Route, Routes} from "react-router-dom";
 import Dashboard from "./components/App/Dashboard/Dashboard";
 import Preferences from "./components/App/Preferences/Preferences";
 import LoginPage from "./components/App/Login/LoginPage";
-import {Auction} from "./components/App/Auction/Auction";
+import {Market} from "./components/App/Market/Market";
 import NotFound from "./components/NotFound/NotFound"
 import Home from "./components/App/Home/Home"
 import {User} from "./components/App/User/User"
@@ -22,7 +22,7 @@ const App = () => {
                 <Route index element={<LoginPage/>}/>
                 <Route path="loginpage" element={<LoginPage/>}/>
                 <Route path="/user/*" element={<ProtectedRoute><User /></ProtectedRoute>}>
-                    <Route path="auction" element={<Auction/>}/>
+                    <Route path="market" element={<Market/>}/>
                     <Route path="home" element={<Home/>}/>
                     <Route path="navigation" element={<Navigation/>}/>
                     <Route path="account" element={<Profile/>}/>
