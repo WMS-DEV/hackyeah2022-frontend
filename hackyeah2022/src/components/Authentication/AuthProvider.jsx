@@ -25,6 +25,7 @@ const AuthProvider = ({ children }) => {
         }).then((response)=>{
             console.log(response.headers.get('authorization'))
             setToken(response.headers.get('authorization'));
+            // console.log(token)
         return response.headers.get('authorization')
         })
     }

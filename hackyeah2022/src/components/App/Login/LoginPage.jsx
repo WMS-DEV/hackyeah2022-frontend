@@ -30,7 +30,7 @@ export default function LoginPage({setToken}) {
                     <input type="password" onChange={onPasswordChange}/>
                     <br/>
                     <div>
-                        <button type="submit" onClick={onLogin}>Submit</button>
+                        <button onClick={onLogin}>Submit</button>
                     </div>
                 </div>
                 </div>

@@ -1,5 +1,6 @@
 import {NavLink} from "react-router-dom";
 import {useAuth} from "../Authentication/AuthProvider";
+import {Link} from "react-router-dom";
 
 const Navigation = () => {
 
@@ -7,7 +8,7 @@ const Navigation = () => {
 
     return(
         <nav>
-            <NavLink to='/user/home'>Home</NavLink>
+            <Link to='/user/home'>Home</Link>
             <NavLink to="/user/dashboard">Dashboard</NavLink>
             <NavLink to="/user/preferences">Preferences</NavLink>
             <NavLink to="/user/login">LoginnnPage</NavLink>
